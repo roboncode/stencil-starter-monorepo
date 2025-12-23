@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MyComponent } from '../generated/components';
+import 'components';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MyComponent],
+  imports: [RouterOutlet],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
