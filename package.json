@@ -4,15 +4,15 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "pnpm build:stencil-library && pnpm build:angular-library && pnpm build:app",
-    "build:stencil-library": "pnpm --filter stencil-library build",
-    "build:angular-library": "pnpm --filter angular-library build",
+    "build": "pnpm build:web-components && pnpm build:angular-components && pnpm build:app",
+    "build:web-components": "pnpm --filter web-components build",
+    "build:angular-components": "pnpm --filter angular-components build",
     "build:app": "pnpm --filter app build",
     "start": "pnpm --filter app start",
-    "start:stencil-library": "pnpm --filter stencil-library start",
-    "dev": "pnpm build:stencil-library && pnpm build:angular-library && pnpm start",
+    "start:web-components": "pnpm --filter web-components start",
+    "dev": "pnpm build:web-components && pnpm build:angular-components && pnpm start",
     "test": "pnpm -r test",
-    "clean": "rm -rf node_modules packages/*/node_modules packages/angular-library/dist"
+    "clean": "rm -rf node_modules packages/*/node_modules packages/angular-components/dist"
   },
   "keywords": [],
   "author": "",

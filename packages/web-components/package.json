@@ -1,17 +1,17 @@
 {
-  "name": "stencil-library",
+  "name": "web-components",
   "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "description": "Web Components Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/stencil-library/stencil-library.esm.js",
+  "unpkg": "dist/web-components/web-components.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/stencil-library/stencil-library.esm.js",
-      "require": "./dist/cjs/stencil-library.cjs.js"
+      "import": "./dist/web-components/web-components.esm.js",
+      "require": "./dist/cjs/web-components.cjs.js"
     },
     "./components": {
       "import": "./dist/components/index.js",
@@ -30,10 +30,6 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs"
     }
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stenciljs/component-starter.git"
   },
   "files": [
     "dist/",

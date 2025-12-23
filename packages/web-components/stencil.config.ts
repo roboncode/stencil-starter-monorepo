@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { angularOutputTarget } from '@stencil/angular-output-target';
 
 export const config: Config = {
-  namespace: 'stencil-library',
+  namespace: 'web-components',
   outputTargets: [
     {
       type: 'dist',
@@ -21,10 +21,10 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     angularOutputTarget({
-      componentCorePackage: 'stencil-library',
+      componentCorePackage: 'web-components',
       outputType: 'standalone',
-      directivesProxyFile: '../angular-library/projects/component-library/src/lib/stencil-generated/components.ts',
-      directivesArrayFile: '../angular-library/projects/component-library/src/lib/stencil-generated/index.ts',
+      directivesProxyFile: '../angular-components/src/lib/stencil-generated/components.ts',
+      directivesArrayFile: '../angular-components/src/lib/stencil-generated/index.ts',
     }),
   ],
   testing: {

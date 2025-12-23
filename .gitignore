@@ -47,3 +47,6 @@ __screenshots__/
 *.tmp.*
 *~
 *.sw[mnpcod]
+
+# Local npm registry
+.verdaccio/

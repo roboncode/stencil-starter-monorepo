@@ -22,8 +22,8 @@
   },
   "private": true,
   "dependencies": {
-    "component-library": "file:../angular-library/dist/component-library",
-    "stencil-library": "workspace:*",
+    "angular-components": "file:../angular-components/dist",
+    "web-components": "workspace:*",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",
