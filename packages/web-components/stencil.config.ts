@@ -7,6 +7,10 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [
+        { src: 'styles/themes.css', dest: 'styles/themes.css' },
+        { src: 'styles/tokens.css', dest: 'styles/tokens.css' },
+      ],
     },
     {
       type: 'dist-custom-elements',

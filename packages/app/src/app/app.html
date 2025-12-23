@@ -1,41 +1,182 @@
-<style>
-  :host {
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div>
-      <my-component first="Stencil" middle="+" last="Angular"></my-component>
-      <my-component first="Rob" last="Taylor"></my-component>
-      <my-component first="Mary" middle="Jane" last="Smith"></my-component>
+<div class="container">
+  <!-- Header with Theme Toggle -->
+  <div class="header">
+    <h1>Angular Components Demo</h1>
+    <div class="theme-indicator">
+      <button
+        class="theme-pill"
+        [class.active]="currentTheme() === 'light'"
+        (click)="setTheme('light')">
+        <i class="fa-solid fa-sun"></i> Light
+      </button>
+      <button
+        class="theme-pill"
+        [class.active]="currentTheme() === 'dark'"
+        (click)="setTheme('dark')">
+        <i class="fa-solid fa-moon"></i> Dark
+      </button>
     </div>
   </div>
-</main>
+
+  <!-- My Component -->
+  <div class="demo-section">
+    <h2>My Component</h2>
+    <my-component first="Stencil" middle="+" last="Angular"></my-component>
+  </div>
+
+  <!-- Input Group Examples -->
+  <div class="demo-section">
+    <h2>Input Group</h2>
+
+    <div class="demo-row">
+      <span class="label">Search input with icon and results count</span>
+      <ui-input-group>
+        <ui-input-group-addon>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Search..."></ui-input-group-input>
+        <ui-input-group-addon align="inline-end" variant="transparent">
+          <span class="results-text">12 results</span>
+        </ui-input-group-addon>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">URL input with prefix and info tooltip</span>
+      <ui-input-group>
+        <ui-input-group-addon variant="muted">
+          <span>https://</span>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="example.com"></ui-input-group-input>
+        <ui-input-group-addon align="inline-end">
+          <ui-tooltip content="Enter your website URL without the protocol prefix." placement="top">
+            <button class="icon-button">
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+          </ui-tooltip>
+        </ui-input-group-addon>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Email input with icon</span>
+      <ui-input-group>
+        <ui-input-group-addon>
+          <i class="fa-solid fa-envelope"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input type="email" placeholder="you@example.com"></ui-input-group-input>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Password input with visibility toggle</span>
+      <ui-input-group>
+        <ui-input-group-addon>
+          <i class="fa-solid fa-lock"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input
+          [type]="passwordVisible() ? 'text' : 'password'"
+          placeholder="Enter password">
+        </ui-input-group-input>
+        <ui-input-group-addon align="inline-end" [clickable]="true" (click)="togglePasswordVisibility()">
+          <i [class]="passwordVisible() ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+        </ui-input-group-addon>
+      </ui-input-group>
+    </div>
+  </div>
+
+  <!-- Input Group Sizes -->
+  <div class="demo-section">
+    <h2>Input Group Sizes</h2>
+
+    <div class="demo-row">
+      <span class="label">Small</span>
+      <ui-input-group size="sm">
+        <ui-input-group-addon>
+          <i class="fa-solid fa-user"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Small input"></ui-input-group-input>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Base (default)</span>
+      <ui-input-group size="base">
+        <ui-input-group-addon>
+          <i class="fa-solid fa-user"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Base input"></ui-input-group-input>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Large</span>
+      <ui-input-group size="lg">
+        <ui-input-group-addon>
+          <i class="fa-solid fa-user"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Large input"></ui-input-group-input>
+      </ui-input-group>
+    </div>
+  </div>
+
+  <!-- Tooltip Examples -->
+  <div class="demo-section">
+    <h2>Tooltip</h2>
+
+    <div class="demo-row tooltip-row">
+      <ui-tooltip content="Tooltip on top" placement="top">
+        <button class="demo-button">Top</button>
+      </ui-tooltip>
+
+      <ui-tooltip content="Tooltip on right" placement="right">
+        <button class="demo-button">Right</button>
+      </ui-tooltip>
+
+      <ui-tooltip content="Tooltip on bottom" placement="bottom">
+        <button class="demo-button">Bottom</button>
+      </ui-tooltip>
+
+      <ui-tooltip content="Tooltip on left" placement="left">
+        <button class="demo-button">Left</button>
+      </ui-tooltip>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Icon with tooltip</span>
+      <ui-tooltip content="Click to add to favorites" placement="top">
+        <button class="icon-button-lg">
+          <i class="fa-regular fa-heart"></i>
+        </button>
+      </ui-tooltip>
+    </div>
+  </div>
+
+  <!-- States -->
+  <div class="demo-section">
+    <h2>States</h2>
+
+    <div class="demo-row">
+      <span class="label">Disabled</span>
+      <ui-input-group [disabled]="true">
+        <ui-input-group-addon>
+          <i class="fa-solid fa-ban"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Disabled input" [disabled]="true"></ui-input-group-input>
+      </ui-input-group>
+    </div>
+
+    <div class="demo-row">
+      <span class="label">Error state</span>
+      <ui-input-group [error]="true">
+        <ui-input-group-addon>
+          <i class="fa-solid fa-triangle-exclamation error-icon"></i>
+        </ui-input-group-addon>
+        <ui-input-group-input placeholder="Invalid input"></ui-input-group-input>
+      </ui-input-group>
+      <span class="error-message">This field is required</span>
+    </div>
+  </div>
+</div>
+
 <router-outlet />

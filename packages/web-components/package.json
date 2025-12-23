@@ -45,7 +45,10 @@
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
       "require": "./loader/index.cjs"
-    }
+    },
+    "./styles/themes.css": "./dist/web-components/styles/themes.css",
+    "./styles/tokens.css": "./dist/web-components/styles/tokens.css",
+    "./styles/*": "./dist/web-components/styles/*"
   },
   "files": [
     "dist/",

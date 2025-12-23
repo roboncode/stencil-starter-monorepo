@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+
+/* Import theme tokens from web-components */
+@import 'web-components/styles/themes.css';
+/* @import '../custom-theme.css'; */
+
+/* ========================================
+   Base Styles
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--theme-bg-secondary);
+  color: var(--theme-text-primary);
+  line-height: 1.5;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
