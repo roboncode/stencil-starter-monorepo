@@ -1,28 +1,13 @@
 {
-  "name": "app",
+  "name": "angular-library",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build": "ng build component-library",
     "test": "ng test"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "private": true,
   "dependencies": {
-    "component-library": "file:../angular-library/dist/component-library",
     "stencil-library": "workspace:*",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
@@ -37,8 +22,7 @@
     "@angular/build": "^21.0.4",
     "@angular/cli": "^21.0.4",
     "@angular/compiler-cli": "^21.0.0",
-    "jsdom": "^27.1.0",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8"
+    "ng-packagr": "^21.0.0",
+    "typescript": "~5.9.2"
   }
 }
