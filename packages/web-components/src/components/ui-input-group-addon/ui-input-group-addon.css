@@ -1,11 +1,12 @@
 :host {
   --addon-padding-x: var(--spacing-3, 0.75rem);
-  --addon-color: var(--color-foreground, #171717);
-  --addon-muted-color: var(--color-muted, #737373);
-  --addon-muted-bg: var(--color-neutral-100, #f5f5f5);
-  --addon-border-color: var(--color-border, #e5e5e5);
-  --addon-hover-bg: var(--color-neutral-100, #f5f5f5);
-  --addon-active-bg: var(--color-neutral-200, #e5e5e5);
+  --addon-color: var(--theme-text-primary, #171717);
+  --addon-muted-color: var(--theme-addon-text, #525252);
+  --addon-muted-bg: var(--theme-addon-bg, #f5f5f5);
+  --addon-border-color: var(--theme-addon-border, #e5e5e5);
+  --addon-hover-bg: var(--theme-bg-tertiary, #f5f5f5);
+  --addon-active-bg: var(--theme-border-default, #e5e5e5);
+  --addon-focus-color: var(--theme-primary, #3b82f6);
 
   display: flex;
   align-items: center;
@@ -79,7 +80,7 @@
 }
 
 .addon--clickable .addon-content:focus-visible {
-  outline: 2px solid var(--input-focus-ring-color, #3b82f6);
+  outline: 2px solid var(--addon-focus-color);
   outline-offset: -2px;
 }
 
@@ -102,11 +103,11 @@
 :host([clickable]) .addon-content {
   min-width: 2rem;
   padding: 0 0.5rem;
-  border-radius: var(--radius-sm, 0.125rem);
+  border-radius: var(--theme-radius-sm, 0.125rem);
   margin: 0.25rem;
 }
 
 /* Rounded variant for icon buttons */
 :host([clickable][rounded]) .addon-content {
-  border-radius: 9999px;
+  border-radius: var(--theme-radius-full, 9999px);
 }

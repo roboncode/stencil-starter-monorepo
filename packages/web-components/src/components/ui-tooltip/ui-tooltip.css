@@ -1,12 +1,13 @@
 :host {
-  --tooltip-bg: var(--tooltip-background, #171717);
-  --tooltip-fg: var(--tooltip-foreground, #ffffff);
+  --tooltip-bg: var(--theme-tooltip-bg, #171717);
+  --tooltip-fg: var(--theme-tooltip-text, #ffffff);
   --tooltip-padding-x: var(--spacing-3, 0.75rem);
   --tooltip-padding-y: var(--spacing-2, 0.5rem);
-  --tooltip-radius: var(--radius-md, 0.375rem);
+  --tooltip-radius: var(--theme-radius-md, 0.375rem);
   --tooltip-font-size: var(--font-size-sm, 0.875rem);
   --tooltip-max-width: 20rem;
   --tooltip-z-index: var(--z-tooltip, 1070);
+  --tooltip-shadow: var(--theme-shadow-md, 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1));
 
   display: inline-block;
 }
@@ -26,7 +27,7 @@
   font-size: var(--tooltip-font-size);
   line-height: 1.4;
   border-radius: var(--tooltip-radius);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: var(--tooltip-shadow);
   pointer-events: none;
   opacity: 0;
   transform: scale(0.95);
