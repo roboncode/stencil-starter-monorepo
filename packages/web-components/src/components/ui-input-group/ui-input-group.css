@@ -1,0 +1,77 @@
+:host {
+  /* Design token defaults */
+  --input-group-height-sm: var(--input-height-sm, 2rem);
+  --input-group-height-base: var(--input-height-base, 2.5rem);
+  --input-group-height-lg: var(--input-height-lg, 3rem);
+  --input-group-border-color: var(--input-border-color, #e5e5e5);
+  --input-group-border-radius: var(--radius-md, 0.375rem);
+  --input-group-bg: var(--input-background, #ffffff);
+  --input-group-focus-ring-color: var(--input-focus-ring-color, #3b82f6);
+  --input-group-error-color: #ef4444;
+  --input-group-font-size-sm: var(--font-size-xs, 0.75rem);
+  --input-group-font-size-base: var(--font-size-sm, 0.875rem);
+  --input-group-font-size-lg: var(--font-size-base, 1rem);
+
+  display: flex;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--input-group-border-color);
+  border-radius: var(--input-group-border-radius);
+  background-color: var(--input-group-bg);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  overflow: hidden;
+}
+
+/* Size variants */
+.input-group--sm {
+  height: var(--input-group-height-sm);
+  font-size: var(--input-group-font-size-sm);
+}
+
+.input-group--base {
+  height: var(--input-group-height-base);
+  font-size: var(--input-group-font-size-base);
+}
+
+.input-group--lg {
+  height: var(--input-group-height-lg);
+  font-size: var(--input-group-font-size-lg);
+}
+
+/* Focus state - handled via :focus-within */
+.input-group:focus-within {
+  border-color: var(--input-group-focus-ring-color);
+  box-shadow: 0 0 0 2px var(--input-group-focus-ring-color, #3b82f6)33;
+}
+
+/* Disabled state */
+.input-group--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #f5f5f5;
+}
+
+/* Error state */
+.input-group--error {
+  border-color: var(--input-group-error-color);
+}
+
+.input-group--error:focus-within {
+  border-color: var(--input-group-error-color);
+  box-shadow: 0 0 0 2px var(--input-group-error-color)33;
+}
+
+/* Slotted content layout */
+::slotted(*) {
+  flex-shrink: 0;
+}
+
+::slotted(ui-input-group-input) {
+  flex: 1;
+  min-width: 0;
+}

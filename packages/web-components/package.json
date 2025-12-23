@@ -25,6 +25,22 @@
       "import": "./dist/components/my-component.js",
       "types": "./dist/components/my-component.d.ts"
     },
+    "./ui-tooltip": {
+      "import": "./dist/components/ui-tooltip.js",
+      "types": "./dist/components/ui-tooltip.d.ts"
+    },
+    "./ui-input-group": {
+      "import": "./dist/components/ui-input-group.js",
+      "types": "./dist/components/ui-input-group.d.ts"
+    },
+    "./ui-input-group-input": {
+      "import": "./dist/components/ui-input-group-input.js",
+      "types": "./dist/components/ui-input-group-input.d.ts"
+    },
+    "./ui-input-group-addon": {
+      "import": "./dist/components/ui-input-group-addon.js",
+      "types": "./dist/components/ui-input-group-addon.d.ts"
+    },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",
@@ -51,5 +67,9 @@
     "jest-cli": "^29.7.0",
     "puppeteer": "^24.3.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@floating-ui/dom": "^1.7.4",
+    "@fortawesome/fontawesome-free": "^7.1.0"
+  }
 }

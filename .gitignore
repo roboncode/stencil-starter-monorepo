@@ -50,3 +50,6 @@ __screenshots__/
 
 # Local npm registry
 .verdaccio/
+
+# output
+.playwright-mcp

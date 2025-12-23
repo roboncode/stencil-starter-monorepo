@@ -1,0 +1,112 @@
+:host {
+  --addon-padding-x: var(--spacing-3, 0.75rem);
+  --addon-color: var(--color-foreground, #171717);
+  --addon-muted-color: var(--color-muted, #737373);
+  --addon-muted-bg: var(--color-neutral-100, #f5f5f5);
+  --addon-border-color: var(--color-border, #e5e5e5);
+  --addon-hover-bg: var(--color-neutral-100, #f5f5f5);
+  --addon-active-bg: var(--color-neutral-200, #e5e5e5);
+
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.addon {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.addon-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--addon-padding-x);
+  border: none;
+  background: transparent;
+  color: var(--addon-color);
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  white-space: nowrap;
+  gap: 0.5rem;
+}
+
+/* Variant: default */
+.addon--default .addon-content {
+  color: var(--addon-color);
+}
+
+/* Variant: muted - has background */
+.addon--muted .addon-content {
+  background-color: var(--addon-muted-bg);
+  color: var(--addon-muted-color);
+}
+
+/* Variant: transparent */
+.addon--transparent .addon-content {
+  background: transparent;
+  color: var(--addon-muted-color);
+}
+
+/* Borders based on alignment */
+.addon--inline-start.addon--muted .addon-content {
+  border-right: 1px solid var(--addon-border-color);
+}
+
+.addon--inline-end.addon--muted .addon-content {
+  border-left: 1px solid var(--addon-border-color);
+}
+
+/* Clickable styles */
+.addon--clickable .addon-content {
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.addon--clickable:not(.addon--disabled) .addon-content:hover {
+  background-color: var(--addon-hover-bg);
+}
+
+.addon--clickable:not(.addon--disabled) .addon-content:active {
+  background-color: var(--addon-active-bg);
+}
+
+.addon--clickable .addon-content:focus {
+  outline: none;
+}
+
+.addon--clickable .addon-content:focus-visible {
+  outline: 2px solid var(--input-focus-ring-color, #3b82f6);
+  outline-offset: -2px;
+}
+
+/* Disabled state */
+.addon--disabled .addon-content {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Icon styling */
+::slotted(i),
+::slotted(svg),
+::slotted(.icon) {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+
+/* Button-like icon addon */
+:host([clickable]) .addon-content {
+  min-width: 2rem;
+  padding: 0 0.5rem;
+  border-radius: var(--radius-sm, 0.125rem);
+  margin: 0.25rem;
+}
+
+/* Rounded variant for icon buttons */
+:host([clickable][rounded]) .addon-content {
+  border-radius: 9999px;
+}

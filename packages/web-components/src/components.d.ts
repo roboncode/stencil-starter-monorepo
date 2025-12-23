@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Placement } from "@floating-ui/dom";
+export { Placement } from "@floating-ui/dom";
 export namespace Components {
     interface MyComponent {
         /**
@@ -20,6 +22,122 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface UiInputGroup {
+        /**
+          * Whether the input group is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Whether the input group has an error state
+          * @default false
+         */
+        "error": boolean;
+        /**
+          * Size variant of the input group
+          * @default 'base'
+         */
+        "size": 'sm' | 'base' | 'lg';
+    }
+    interface UiInputGroupAddon {
+        /**
+          * Alignment of the addon (inline-start = left, inline-end = right)
+          * @default 'inline-start'
+         */
+        "align": 'inline-start' | 'inline-end';
+        /**
+          * Whether to render as a clickable button
+          * @default false
+         */
+        "clickable": boolean;
+        /**
+          * Whether the addon is disabled (when clickable)
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Visual variant of the addon
+          * @default 'default'
+         */
+        "variant": 'default' | 'muted' | 'transparent';
+    }
+    interface UiInputGroupInput {
+        /**
+          * Autocomplete attribute
+          * @default 'off'
+         */
+        "autocomplete": string;
+        /**
+          * Whether the input is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Name attribute for the input
+         */
+        "name": string;
+        /**
+          * Placeholder text
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * Whether the input is readonly
+          * @default false
+         */
+        "readonly": boolean;
+        /**
+          * Whether the input is required
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Input type
+          * @default 'text'
+         */
+        "type": 'text' | 'email' | 'password' | 'search' | 'tel' | 'url' | 'number';
+        /**
+          * The input value
+          * @default ''
+         */
+        "value": string;
+    }
+    interface UiTooltip {
+        /**
+          * The content to display in the tooltip
+          * @default ''
+         */
+        "content": string;
+        /**
+          * Whether the tooltip is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Delay before hiding the tooltip (in ms)
+          * @default 0
+         */
+        "hideDelay": number;
+        /**
+          * Offset from the trigger element (in px)
+          * @default 8
+         */
+        "offsetDistance": number;
+        /**
+          * The placement of the tooltip relative to the trigger
+          * @default 'top'
+         */
+        "placement": Placement;
+        /**
+          * Delay before showing the tooltip (in ms)
+          * @default 0
+         */
+        "showDelay": number;
+    }
+}
+export interface UiInputGroupInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiInputGroupInputElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +146,50 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLUiInputGroupElement extends Components.UiInputGroup, HTMLStencilElement {
+    }
+    var HTMLUiInputGroupElement: {
+        prototype: HTMLUiInputGroupElement;
+        new (): HTMLUiInputGroupElement;
+    };
+    interface HTMLUiInputGroupAddonElement extends Components.UiInputGroupAddon, HTMLStencilElement {
+    }
+    var HTMLUiInputGroupAddonElement: {
+        prototype: HTMLUiInputGroupAddonElement;
+        new (): HTMLUiInputGroupAddonElement;
+    };
+    interface HTMLUiInputGroupInputElementEventMap {
+        "inputChange": string;
+        "inputInput": string;
+        "inputFocus": void;
+        "inputBlur": void;
+    }
+    interface HTMLUiInputGroupInputElement extends Components.UiInputGroupInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiInputGroupInputElementEventMap>(type: K, listener: (this: HTMLUiInputGroupInputElement, ev: UiInputGroupInputCustomEvent<HTMLUiInputGroupInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiInputGroupInputElementEventMap>(type: K, listener: (this: HTMLUiInputGroupInputElement, ev: UiInputGroupInputCustomEvent<HTMLUiInputGroupInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiInputGroupInputElement: {
+        prototype: HTMLUiInputGroupInputElement;
+        new (): HTMLUiInputGroupInputElement;
+    };
+    interface HTMLUiTooltipElement extends Components.UiTooltip, HTMLStencilElement {
+    }
+    var HTMLUiTooltipElement: {
+        prototype: HTMLUiTooltipElement;
+        new (): HTMLUiTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "ui-input-group": HTMLUiInputGroupElement;
+        "ui-input-group-addon": HTMLUiInputGroupAddonElement;
+        "ui-input-group-input": HTMLUiInputGroupInputElement;
+        "ui-tooltip": HTMLUiTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +207,140 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface UiInputGroup {
+        /**
+          * Whether the input group is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Whether the input group has an error state
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * Size variant of the input group
+          * @default 'base'
+         */
+        "size"?: 'sm' | 'base' | 'lg';
+    }
+    interface UiInputGroupAddon {
+        /**
+          * Alignment of the addon (inline-start = left, inline-end = right)
+          * @default 'inline-start'
+         */
+        "align"?: 'inline-start' | 'inline-end';
+        /**
+          * Whether to render as a clickable button
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * Whether the addon is disabled (when clickable)
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Visual variant of the addon
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'muted' | 'transparent';
+    }
+    interface UiInputGroupInput {
+        /**
+          * Autocomplete attribute
+          * @default 'off'
+         */
+        "autocomplete"?: string;
+        /**
+          * Whether the input is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Name attribute for the input
+         */
+        "name"?: string;
+        /**
+          * Emitted when input loses focus
+         */
+        "onInputBlur"?: (event: UiInputGroupInputCustomEvent<void>) => void;
+        /**
+          * Emitted when the value changes
+         */
+        "onInputChange"?: (event: UiInputGroupInputCustomEvent<string>) => void;
+        /**
+          * Emitted when input receives focus
+         */
+        "onInputFocus"?: (event: UiInputGroupInputCustomEvent<void>) => void;
+        /**
+          * Emitted when input receives input event
+         */
+        "onInputInput"?: (event: UiInputGroupInputCustomEvent<string>) => void;
+        /**
+          * Placeholder text
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * Whether the input is readonly
+          * @default false
+         */
+        "readonly"?: boolean;
+        /**
+          * Whether the input is required
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Input type
+          * @default 'text'
+         */
+        "type"?: 'text' | 'email' | 'password' | 'search' | 'tel' | 'url' | 'number';
+        /**
+          * The input value
+          * @default ''
+         */
+        "value"?: string;
+    }
+    interface UiTooltip {
+        /**
+          * The content to display in the tooltip
+          * @default ''
+         */
+        "content"?: string;
+        /**
+          * Whether the tooltip is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Delay before hiding the tooltip (in ms)
+          * @default 0
+         */
+        "hideDelay"?: number;
+        /**
+          * Offset from the trigger element (in px)
+          * @default 8
+         */
+        "offsetDistance"?: number;
+        /**
+          * The placement of the tooltip relative to the trigger
+          * @default 'top'
+         */
+        "placement"?: Placement;
+        /**
+          * Delay before showing the tooltip (in ms)
+          * @default 0
+         */
+        "showDelay"?: number;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "ui-input-group": UiInputGroup;
+        "ui-input-group-addon": UiInputGroupAddon;
+        "ui-input-group-input": UiInputGroupInput;
+        "ui-tooltip": UiTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +348,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "ui-input-group": LocalJSX.UiInputGroup & JSXBase.HTMLAttributes<HTMLUiInputGroupElement>;
+            "ui-input-group-addon": LocalJSX.UiInputGroupAddon & JSXBase.HTMLAttributes<HTMLUiInputGroupAddonElement>;
+            "ui-input-group-input": LocalJSX.UiInputGroupInput & JSXBase.HTMLAttributes<HTMLUiInputGroupInputElement>;
+            "ui-tooltip": LocalJSX.UiTooltip & JSXBase.HTMLAttributes<HTMLUiTooltipElement>;
         }
     }
 }

@@ -1,0 +1,57 @@
+:host {
+  --input-padding-x: var(--spacing-3, 0.75rem);
+  --input-color: var(--color-foreground, #171717);
+  --input-placeholder-color: var(--color-muted, #737373);
+
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.input-wrapper {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0 var(--input-padding-x);
+  border: none;
+  background: transparent;
+  color: var(--input-color);
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--input-placeholder-color);
+  opacity: 1;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+/* Remove default browser styles */
+.input::-webkit-search-decoration,
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-results-button,
+.input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
+/* Remove number input spinners */
+.input[type='number']::-webkit-inner-spin-button,
+.input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  -moz-appearance: textfield;
+}

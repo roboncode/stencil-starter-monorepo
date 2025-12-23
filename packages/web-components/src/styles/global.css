@@ -1,0 +1,72 @@
+/* Global Styles & Utilities */
+@import './tokens.css';
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Base typography */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Color utilities */
+.text-muted { color: var(--color-muted); }
+.text-foreground { color: var(--color-foreground); }
+.text-primary { color: var(--color-primary-500); }
+
+/* Focus ring utility */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 var(--input-focus-ring-offset) var(--color-background),
+              0 0 0 calc(var(--input-focus-ring-offset) + var(--input-focus-ring-width)) var(--input-focus-ring-color);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--input-focus-ring-offset) var(--color-background),
+              0 0 0 calc(var(--input-focus-ring-offset) + var(--input-focus-ring-width)) var(--input-focus-ring-color);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Transition utilities */
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-duration: var(--transition-fast);
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-duration: var(--transition-fast);
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-duration: var(--transition-fast);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-duration: var(--transition-fast);
+}
