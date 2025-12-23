@@ -1,0 +1,19 @@
+{
+  "name": "angular-stencil-starter",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "pnpm -r build",
+    "build:components": "pnpm --filter components build",
+    "build:app": "pnpm --filter app build",
+    "start": "pnpm --filter app start",
+    "start:components": "pnpm --filter components start",
+    "test": "pnpm -r test",
+    "clean": "rm -rf node_modules packages/*/node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0"
+}
