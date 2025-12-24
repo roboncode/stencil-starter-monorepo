@@ -11,7 +11,7 @@
     "generate:jsx-types": "node scripts/generate-jsx-types.js"
   },
   "dependencies": {
-    "@components/core": "workspace:*",
+    "@components/core": "0.0.1",
     "@fortawesome/fontawesome-free": "^7.1.0",
     "jsx-dom": "^8.1.6"
   },

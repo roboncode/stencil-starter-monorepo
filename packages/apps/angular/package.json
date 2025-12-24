@@ -22,8 +22,8 @@
   },
   "private": true,
   "dependencies": {
-    "@components/angular": "file:../../components/angular/dist",
-    "@components/core": "workspace:*",
+    "@components/angular": "0.0.1",
+    "@components/core": "0.0.1",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",

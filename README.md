@@ -15,27 +15,26 @@ stencil-starter-monorepo/
 │       ├── angular/              # @app/angular - Angular demo app
 │       ├── react/                # @app/react - React demo app
 │       └── storybook/            # @app/storybook - Component documentation
-├── package.json
-└── pnpm-workspace.yaml
+└── package.json
 ```
 
 ## Prerequisites
 
 - Node.js (v18 or higher)
-- PNPM (v10 or higher)
+- npm (v7 or higher, for workspace support)
 
 ## Getting Started
 
 ### 1. Install Dependencies
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### 2. Build Everything
 
 ```bash
-pnpm build
+npm run build
 ```
 
 This builds in order:
@@ -49,33 +48,33 @@ This builds in order:
 
 ```bash
 # Start both Angular and React apps
-pnpm dev
+npm run dev
 
 # Or start individually
-pnpm dev:angular    # Angular app at http://localhost:4200
-pnpm dev:react      # React app at http://localhost:5173
-pnpm dev:storybook  # Storybook at http://localhost:6006
+npm run dev:angular    # Angular app at http://localhost:4200
+npm run dev:react      # React app at http://localhost:5173
+npm run dev:storybook  # Storybook at http://localhost:6006
 ```
 
 ## Available Scripts
 
 | Command | Description |
 |---------|-------------|
-| `pnpm install` | Install all dependencies |
-| `pnpm build` | Build everything in correct order |
-| `pnpm build:core` | Build Stencil components + generate JSX types |
-| `pnpm build:angular` | Build Angular wrapper library |
-| `pnpm build:react` | Build React wrapper library |
-| `pnpm build:app:angular` | Build Angular app |
-| `pnpm build:app:react` | Build React app |
-| `pnpm build:storybook` | Build Storybook for deployment |
-| `pnpm dev` | Build and start both Angular and React apps |
-| `pnpm dev:angular` | Build core + Angular wrappers, start Angular app |
-| `pnpm dev:react` | Build core + React wrappers, start React app |
-| `pnpm dev:storybook` | Build core, start Storybook dev server |
-| `pnpm start:core` | Start Stencil dev server with hot reload |
-| `pnpm test` | Run tests in all packages |
-| `pnpm clean` | Remove all node_modules and dist directories |
+| `npm install` | Install all dependencies |
+| `npm run build` | Build everything in correct order |
+| `npm run build:core` | Build Stencil components + generate JSX types |
+| `npm run build:angular` | Build Angular wrapper library |
+| `npm run build:react` | Build React wrapper library |
+| `npm run build:app:angular` | Build Angular app |
+| `npm run build:app:react` | Build React app |
+| `npm run build:storybook` | Build Storybook for deployment |
+| `npm run dev` | Build and start both Angular and React apps |
+| `npm run dev:angular` | Build core + Angular wrappers, start Angular app |
+| `npm run dev:react` | Build core + React wrappers, start React app |
+| `npm run dev:storybook` | Build core, start Storybook dev server |
+| `npm run start:core` | Start Stencil dev server with hot reload |
+| `npm test` | Run tests in all packages |
+| `npm run clean` | Remove all node_modules and dist directories |
 
 ## Using Components
 
@@ -142,7 +141,7 @@ Storybook provides interactive documentation for all components with:
 - Full JSX auto-completion in story files
 
 ```bash
-pnpm dev:storybook
+npm run dev:storybook
 ```
 
 Stories are written in TSX with full type support:
@@ -167,14 +166,14 @@ const meta: Meta = {
 1. Generate a new component:
    ```bash
    cd packages/components/core
-   pnpm generate
+   npm run generate
    ```
 
 2. Implement your component in `src/components/<name>/`
 
 3. Build to generate framework wrappers:
    ```bash
-   pnpm build:core
+   npm run build:core
    ```
 
 4. The component is now available in:
@@ -236,22 +235,22 @@ Theme tokens are defined in `@components/core/styles/`:
 
 Rebuild the core package to regenerate wrappers:
 ```bash
-pnpm build:core
+npm run build:core
 ```
 
 ### TypeScript errors in Storybook
 
 JSX types are auto-generated when building core. If you see type errors, ensure core was built:
 ```bash
-pnpm build:core
+npm run build:core
 # or manually regenerate types
-pnpm generate:jsx-types
+npm run generate:jsx-types
 ```
 
 ### Angular/React app not seeing new components
 
 Rebuild the framework wrappers:
 ```bash
-pnpm build:angular  # for Angular
-pnpm build:react    # for React
+npm run build:angular  # for Angular
+npm run build:react    # for React
 ```
