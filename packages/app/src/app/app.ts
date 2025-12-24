@@ -6,7 +6,17 @@ import {
   UiInputGroup,
   UiInputGroupAddon,
   UiInputGroupInput,
-  UiTooltip
+  UiTooltip,
+  UiTabs,
+  UiTabList,
+  UiTab,
+  UiTabPanel,
+  UiRadioGroup,
+  UiRadio,
+  UiToggleGroup,
+  UiToggle,
+  UiChipGroup,
+  UiChip
 } from 'angular-components';
 
 @Component({
@@ -17,7 +27,17 @@ import {
     UiInputGroup,
     UiInputGroupAddon,
     UiInputGroupInput,
-    UiTooltip
+    UiTooltip,
+    UiTabs,
+    UiTabList,
+    UiTab,
+    UiTabPanel,
+    UiRadioGroup,
+    UiRadio,
+    UiToggleGroup,
+    UiToggle,
+    UiChipGroup,
+    UiChip
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

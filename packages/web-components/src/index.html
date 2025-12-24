@@ -428,6 +428,228 @@
           <span class="error-message">This field is required</span>
         </div>
       </div>
+
+      <!-- Tabs -->
+      <div class="demo-section">
+        <h2>Tabs</h2>
+
+        <div class="demo-row">
+          <span class="label">Default tabs</span>
+          <ui-tabs value="tab1">
+            <ui-tab-list>
+              <ui-tab value="tab1">Overview</ui-tab>
+              <ui-tab value="tab2">Features</ui-tab>
+              <ui-tab value="tab3">Pricing</ui-tab>
+              <ui-tab value="tab4" disabled>Disabled</ui-tab>
+            </ui-tab-list>
+            <ui-tab-panel value="tab1">
+              <p>Welcome to the overview panel. This is the first tab content.</p>
+            </ui-tab-panel>
+            <ui-tab-panel value="tab2">
+              <p>Discover our amazing features in this panel.</p>
+            </ui-tab-panel>
+            <ui-tab-panel value="tab3">
+              <p>Check out our competitive pricing options.</p>
+            </ui-tab-panel>
+            <ui-tab-panel value="tab4">
+              <p>This tab is disabled.</p>
+            </ui-tab-panel>
+          </ui-tabs>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Pills variant</span>
+          <ui-tabs value="pill1">
+            <ui-tab-list variant="pills">
+              <ui-tab value="pill1">All</ui-tab>
+              <ui-tab value="pill2">Active</ui-tab>
+              <ui-tab value="pill3">Completed</ui-tab>
+            </ui-tab-list>
+            <ui-tab-panel value="pill1">All items are shown here.</ui-tab-panel>
+            <ui-tab-panel value="pill2">Only active items.</ui-tab-panel>
+            <ui-tab-panel value="pill3">Completed items only.</ui-tab-panel>
+          </ui-tabs>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Tabs with icons</span>
+          <ui-tabs value="icon1">
+            <ui-tab-list>
+              <ui-tab value="icon1">
+                <i slot="icon-start" class="fa-solid fa-house"></i>
+                Home
+              </ui-tab>
+              <ui-tab value="icon2">
+                <i slot="icon-start" class="fa-solid fa-user"></i>
+                Profile
+              </ui-tab>
+              <ui-tab value="icon3">
+                <i slot="icon-start" class="fa-solid fa-gear"></i>
+                Settings
+              </ui-tab>
+            </ui-tab-list>
+            <ui-tab-panel value="icon1">Home content</ui-tab-panel>
+            <ui-tab-panel value="icon2">Profile content</ui-tab-panel>
+            <ui-tab-panel value="icon3">Settings content</ui-tab-panel>
+          </ui-tabs>
+        </div>
+      </div>
+
+      <!-- Radio Group -->
+      <div class="demo-section">
+        <h2>Radio Group</h2>
+
+        <div class="demo-row">
+          <span class="label">Default (dot indicator)</span>
+          <ui-radio-group value="option1">
+            <ui-radio value="option1">Option 1</ui-radio>
+            <ui-radio value="option2">Option 2</ui-radio>
+            <ui-radio value="option3">Option 3</ui-radio>
+          </ui-radio-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Check indicator</span>
+          <ui-radio-group value="check1">
+            <ui-radio value="check1" indicator="check">Small</ui-radio>
+            <ui-radio value="check2" indicator="check">Medium</ui-radio>
+            <ui-radio value="check3" indicator="check">Large</ui-radio>
+          </ui-radio-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Horizontal orientation</span>
+          <ui-radio-group value="h1" orientation="horizontal">
+            <ui-radio value="h1" indicator="check">Daily</ui-radio>
+            <ui-radio value="h2" indicator="check">Weekly</ui-radio>
+            <ui-radio value="h3" indicator="check">Monthly</ui-radio>
+          </ui-radio-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">With descriptions</span>
+          <ui-radio-group value="plan1">
+            <ui-radio value="plan1" indicator="check">
+              Starter
+              <span slot="description">Perfect for individuals and small projects</span>
+            </ui-radio>
+            <ui-radio value="plan2" indicator="check">
+              Pro
+              <span slot="description">Best for growing teams and businesses</span>
+            </ui-radio>
+            <ui-radio value="plan3" indicator="check" disabled>
+              Enterprise
+              <span slot="description">Custom solutions for large organizations</span>
+            </ui-radio>
+          </ui-radio-group>
+        </div>
+      </div>
+
+      <!-- Toggle Group -->
+      <div class="demo-section">
+        <h2>Toggle Group</h2>
+
+        <div class="demo-row">
+          <span class="label">Single selection</span>
+          <ui-toggle-group value="left">
+            <ui-toggle value="left"><i class="fa-solid fa-align-left"></i></ui-toggle>
+            <ui-toggle value="center"><i class="fa-solid fa-align-center"></i></ui-toggle>
+            <ui-toggle value="right"><i class="fa-solid fa-align-right"></i></ui-toggle>
+            <ui-toggle value="justify"><i class="fa-solid fa-align-justify"></i></ui-toggle>
+          </ui-toggle-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Multiple selection</span>
+          <ui-toggle-group multiple>
+            <ui-toggle value="bold"><i class="fa-solid fa-bold"></i></ui-toggle>
+            <ui-toggle value="italic"><i class="fa-solid fa-italic"></i></ui-toggle>
+            <ui-toggle value="underline"><i class="fa-solid fa-underline"></i></ui-toggle>
+            <ui-toggle value="strikethrough"><i class="fa-solid fa-strikethrough"></i></ui-toggle>
+          </ui-toggle-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Outline variant</span>
+          <ui-toggle-group value="grid" variant="outline">
+            <ui-toggle value="list"><i class="fa-solid fa-list"></i> List</ui-toggle>
+            <ui-toggle value="grid"><i class="fa-solid fa-grip"></i> Grid</ui-toggle>
+            <ui-toggle value="columns"><i class="fa-solid fa-columns"></i> Columns</ui-toggle>
+          </ui-toggle-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Size variants</span>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <ui-toggle-group value="a" size="sm">
+              <ui-toggle value="a">Small</ui-toggle>
+              <ui-toggle value="b">Toggles</ui-toggle>
+            </ui-toggle-group>
+            <ui-toggle-group value="a" size="base">
+              <ui-toggle value="a">Base</ui-toggle>
+              <ui-toggle value="b">Toggles</ui-toggle>
+            </ui-toggle-group>
+            <ui-toggle-group value="a" size="lg">
+              <ui-toggle value="a">Large</ui-toggle>
+              <ui-toggle value="b">Toggles</ui-toggle>
+            </ui-toggle-group>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chip Group -->
+      <div class="demo-section">
+        <h2>Chip Group</h2>
+
+        <div class="demo-row">
+          <span class="label">Multi-select chips</span>
+          <ui-chip-group>
+            <ui-chip value="react">React</ui-chip>
+            <ui-chip value="vue">Vue</ui-chip>
+            <ui-chip value="angular">Angular</ui-chip>
+            <ui-chip value="svelte">Svelte</ui-chip>
+          </ui-chip-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Removable chips</span>
+          <ui-chip-group id="removable-chips">
+            <ui-chip value="tag1" removable>JavaScript</ui-chip>
+            <ui-chip value="tag2" removable>TypeScript</ui-chip>
+            <ui-chip value="tag3" removable>Python</ui-chip>
+            <ui-chip value="tag4" removable>Go</ui-chip>
+          </ui-chip-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Chip variants</span>
+          <ui-chip-group>
+            <ui-chip value="default" variant="default">Default</ui-chip>
+            <ui-chip value="primary" variant="primary">Primary</ui-chip>
+            <ui-chip value="success" variant="success">Success</ui-chip>
+            <ui-chip value="warning" variant="warning">Warning</ui-chip>
+            <ui-chip value="error" variant="error">Error</ui-chip>
+          </ui-chip-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">With icons</span>
+          <ui-chip-group>
+            <ui-chip value="react" variant="primary" removable>
+              <i slot="icon-start" class="fa-brands fa-react"></i>
+              React
+            </ui-chip>
+            <ui-chip value="vue" variant="success" removable>
+              <i slot="icon-start" class="fa-brands fa-vuejs"></i>
+              Vue
+            </ui-chip>
+            <ui-chip value="angular" variant="error" removable>
+              <i slot="icon-start" class="fa-brands fa-angular"></i>
+              Angular
+            </ui-chip>
+          </ui-chip-group>
+        </div>
+      </div>
     </div>
 
     <style>

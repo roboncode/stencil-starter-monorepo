@@ -10,6 +10,7 @@ export const config: Config = {
       copy: [
         { src: 'styles/themes.css', dest: 'styles/themes.css' },
         { src: 'styles/tokens.css', dest: 'styles/tokens.css' },
+        { src: 'styles/selection-tokens.css', dest: 'styles/selection-tokens.css' },
       ],
     },
     {

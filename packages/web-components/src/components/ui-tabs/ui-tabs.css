@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+:host([data-orientation="vertical"]) {
+  flex-direction: row;
+}

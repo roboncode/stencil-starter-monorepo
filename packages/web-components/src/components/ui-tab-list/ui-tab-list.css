@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: var(--selection-gap-base, 0.5rem);
+}
+
+/* Default variant - simple with bottom border */
+:host(.tab-list--default) {
+  border-bottom: 1px solid var(--tab-border-color, #e5e5e5);
+  gap: 0;
+}
+
+/* Pills variant - rounded background on selection */
+:host(.tab-list--pills) {
+  gap: var(--selection-gap-sm, 0.25rem);
+  padding: var(--selection-padding-y-sm, 0.25rem);
+  background: var(--theme-bg-tertiary, #f5f5f5);
+  border-radius: var(--selection-radius-lg, 0.5rem);
+}
+
+/* Underline variant - indicator line under active tab */
+:host(.tab-list--underline) {
+  gap: var(--selection-gap-lg, 0.75rem);
+  border-bottom: 1px solid var(--tab-border-color, #e5e5e5);
+}
+
+/* Stretch tabs to fill container */
+:host(.tab-list--stretch) {
+  width: 100%;
+}
+
+:host(.tab-list--stretch) ::slotted(ui-tab) {
+  flex: 1;
+  justify-content: center;
+}
+
+/* Vertical orientation (set by parent) */
+:host-context(ui-tabs[data-orientation="vertical"]) {
+  flex-direction: column;
+  border-bottom: none;
+  border-right: 1px solid var(--tab-border-color, #e5e5e5);
+}
+
+:host-context(ui-tabs[data-orientation="vertical"]).tab-list--pills {
+  border-right: none;
+}

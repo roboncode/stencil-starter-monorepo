@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  padding: var(--selection-padding-x-lg, 1rem);
+  outline: none;
+}
+
+/* Hidden state */
+:host([hidden]) {
+  display: none;
+}
+
+/* Focus state (when tabbed to) */
+:host(:focus-visible) {
+  outline: 2px solid var(--theme-primary, #3b82f6);
+  outline-offset: 2px;
+  border-radius: var(--selection-radius-sm, 0.25rem);
+}
+
+/* Active state */
+:host([data-active]) {
+  animation: fadeIn 150ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

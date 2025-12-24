@@ -1,0 +1,158 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--selection-gap-sm, 0.25rem);
+  height: var(--chip-height, 2.25rem);
+  padding: 0 var(--chip-padding, 0.75rem);
+  font-size: var(--chip-font-size, 0.875rem);
+  font-weight: 500;
+  line-height: 1;
+  border-radius: var(--selection-radius-pill, 9999px);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--selection-transition);
+}
+
+:host([data-disabled]) {
+  cursor: not-allowed;
+  opacity: var(--selection-disabled-opacity, 0.5);
+}
+
+/* Focus state */
+:host(:focus-visible) {
+  outline: none;
+  box-shadow: var(--selection-focus-ring);
+}
+
+/* ========================================
+   Default variant
+   ======================================== */
+:host(.chip--default) {
+  background: var(--chip-default-bg, #f5f5f5);
+  border: 1px solid var(--chip-default-border, #e5e5e5);
+  color: var(--chip-default-text, #171717);
+}
+
+:host(.chip--default:hover:not([data-disabled])) {
+  border-color: var(--selection-hover-border, #d4d4d4);
+}
+
+:host(.chip--default[data-selected]) {
+  background: var(--selection-selected-subtle-bg, #eff6ff);
+  border-color: var(--selection-selected-subtle-border, #3b82f6);
+  color: var(--selection-selected-subtle-text, #3b82f6);
+}
+
+/* ========================================
+   Primary variant
+   ======================================== */
+:host(.chip--primary) {
+  background: var(--chip-primary-bg, #eff6ff);
+  border: 1px solid var(--chip-primary-border, #3b82f6);
+  color: var(--chip-primary-text, #3b82f6);
+}
+
+:host(.chip--primary[data-selected]) {
+  background: var(--selection-selected-bg, #3b82f6);
+  color: var(--selection-selected-text, #ffffff);
+}
+
+/* ========================================
+   Success variant
+   ======================================== */
+:host(.chip--success) {
+  background: var(--chip-success-bg, #f0fdf4);
+  border: 1px solid var(--chip-success-border, #22c55e);
+  color: var(--chip-success-text, #16a34a);
+}
+
+:host(.chip--success[data-selected]) {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #ffffff;
+}
+
+/* ========================================
+   Warning variant
+   ======================================== */
+:host(.chip--warning) {
+  background: var(--chip-warning-bg, #fffbeb);
+  border: 1px solid var(--chip-warning-border, #f59e0b);
+  color: var(--chip-warning-text, #d97706);
+}
+
+:host(.chip--warning[data-selected]) {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #ffffff;
+}
+
+/* ========================================
+   Error variant
+   ======================================== */
+:host(.chip--error) {
+  background: var(--chip-error-bg, #fef2f2);
+  border: 1px solid var(--chip-error-border, #ef4444);
+  color: var(--chip-error-text, #dc2626);
+}
+
+:host(.chip--error[data-selected]) {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+/* ========================================
+   Chip label
+   ======================================== */
+.chip-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ========================================
+   Icons
+   ======================================== */
+::slotted([slot="icon-start"]),
+::slotted([slot="icon-end"]) {
+  font-size: var(--chip-icon-size, 1rem);
+}
+
+/* ========================================
+   Remove button
+   ======================================== */
+.chip-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--chip-remove-size, 1.25rem);
+  height: var(--chip-remove-size, 1.25rem);
+  margin-left: var(--selection-gap-sm, 0.25rem);
+  margin-right: calc(var(--chip-padding, 0.75rem) * -0.5);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: currentColor;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: var(--selection-transition);
+}
+
+.chip-remove:hover:not(:disabled) {
+  opacity: 1;
+  background: var(--chip-remove-hover-bg, rgba(0, 0, 0, 0.1));
+}
+
+.chip-remove:disabled {
+  cursor: not-allowed;
+}
+
+.chip-remove i {
+  font-size: 0.625rem;
+}
+
+/* Adjust remove button for selected state */
+:host([data-selected]) .chip-remove:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}

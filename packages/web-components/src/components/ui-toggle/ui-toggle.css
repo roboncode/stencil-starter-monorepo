@@ -1,0 +1,76 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  min-width: var(--toggle-min-width-base, 2.5rem);
+  height: var(--toggle-height, 2.25rem);
+  padding: 0 var(--toggle-padding, 0.75rem);
+  font-size: var(--toggle-font-size, 0.875rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--theme-text-primary, #171717);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+/* Hover state */
+:host(:hover:not([data-disabled]):not([data-selected])) {
+  background: var(--theme-bg-tertiary, #f5f5f5);
+  color: var(--theme-text-primary, #171717);
+}
+
+/* Focus state */
+:host(:focus-visible) {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--theme-bg-primary, #ffffff), 0 0 0 4px var(--theme-primary, #3b82f6);
+  z-index: 1;
+  position: relative;
+}
+
+/* Selected state */
+:host([data-selected]) {
+  background: var(--theme-primary, #3b82f6);
+  color: #ffffff;
+}
+
+/* Disabled state */
+:host([data-disabled]) {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Icons */
+::slotted(i),
+::slotted(svg) {
+  font-size: var(--toggle-icon-size, 1rem);
+  width: var(--toggle-icon-size, 1rem);
+  height: var(--toggle-icon-size, 1rem);
+}
+
+/* ========================================
+   Outline variant (via parent context)
+   ======================================== */
+:host-context(ui-toggle-group.toggle-group--outline) {
+  border: 1px solid var(--theme-border-default, #e5e5e5);
+  border-radius: 0.375rem;
+}
+
+:host-context(ui-toggle-group.toggle-group--outline):host(:hover:not([data-disabled]):not([data-selected])) {
+  border-color: var(--theme-border-strong, #d4d4d4);
+}
+
+:host-context(ui-toggle-group.toggle-group--outline):host([data-selected]) {
+  border-color: var(--theme-primary, #3b82f6);
+}
+
+/* ========================================
+   Vertical orientation
+   ======================================== */
+:host-context(ui-toggle-group[data-orientation="vertical"]) {
+  width: 100%;
+  justify-content: center;
+}

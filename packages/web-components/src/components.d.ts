@@ -5,7 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SelectionManager, SelectionValue } from "./utils/selection-manager";
 import { Placement } from "@floating-ui/dom";
+export { SelectionManager, SelectionValue } from "./utils/selection-manager";
 export { Placement } from "@floating-ui/dom";
 export namespace Components {
     interface MyComponent {
@@ -21,6 +23,71 @@ export namespace Components {
           * The middle name
          */
         "middle": string;
+    }
+    /**
+     * Individual chip/tag for selection or display
+     */
+    interface UiChip {
+        /**
+          * Whether this chip is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Whether this chip can be removed
+          * @default false
+         */
+        "removable": boolean;
+        /**
+          * Value for this chip
+         */
+        "value": string;
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant": 'default' | 'primary' | 'success' | 'warning' | 'error';
+    }
+    /**
+     * Chip group for tag/chip-based selection
+     */
+    interface UiChipGroup {
+        /**
+          * Default values for uncontrolled mode
+         */
+        "defaultValue": string[];
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Get the selection manager
+         */
+        "getSelectionManager": () => Promise<SelectionManager>;
+        /**
+          * Get current values
+         */
+        "getValue": () => Promise<string[]>;
+        /**
+          * Allow multiple selections (default: true for chips)
+          * @default true
+         */
+        "multiple": boolean;
+        /**
+          * Orientation for keyboard navigation
+          * @default 'horizontal'
+         */
+        "orientation": 'horizontal' | 'vertical';
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size": 'sm' | 'base' | 'lg';
+        /**
+          * Selected values
+         */
+        "value": string[];
     }
     interface UiInputGroup {
         /**
@@ -102,6 +169,196 @@ export namespace Components {
          */
         "value": string;
     }
+    /**
+     * Custom styled radio option (NOT using native radio input)
+     */
+    interface UiRadio {
+        /**
+          * Whether this radio is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Indicator style
+          * @default 'dot'
+         */
+        "indicator": 'dot' | 'check' | 'custom';
+        /**
+          * Value for this radio option
+         */
+        "value": string;
+    }
+    /**
+     * Radio group container for single selection
+     */
+    interface UiRadioGroup {
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue": string;
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Get the selection manager
+         */
+        "getSelectionManager": () => Promise<SelectionManager>;
+        /**
+          * Get current value
+         */
+        "getValue": () => Promise<string>;
+        /**
+          * Name for form submission
+         */
+        "name": string;
+        /**
+          * Orientation for layout and keyboard navigation
+          * @default 'vertical'
+         */
+        "orientation": 'horizontal' | 'vertical';
+        /**
+          * Required for form validation
+          * @default false
+         */
+        "required": boolean;
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size": 'sm' | 'base' | 'lg';
+        /**
+          * Currently selected value
+         */
+        "value": string;
+    }
+    /**
+     * Individual tab trigger
+     */
+    interface UiTab {
+        /**
+          * Whether the tab is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Unique value for this tab (must match corresponding panel)
+         */
+        "value": string;
+    }
+    /**
+     * Container for tab triggers
+     */
+    interface UiTabList {
+        /**
+          * Whether tabs should stretch to fill container
+          * @default false
+         */
+        "stretch": boolean;
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant": 'default' | 'pills' | 'underline';
+    }
+    /**
+     * Tab panel content container
+     */
+    interface UiTabPanel {
+        /**
+          * Value matching the corresponding tab
+         */
+        "value": string;
+    }
+    interface UiTabs {
+        /**
+          * Whether tabs activate on focus (automatic) or require selection (manual)
+          * @default 'automatic'
+         */
+        "activationMode": 'automatic' | 'manual';
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue": string;
+        /**
+          * Get the selection manager (for child components)
+         */
+        "getSelectionManager": () => Promise<SelectionManager>;
+        /**
+          * Get the current value
+         */
+        "getValue": () => Promise<string>;
+        /**
+          * Orientation for keyboard navigation and layout
+          * @default 'horizontal'
+         */
+        "orientation": 'horizontal' | 'vertical';
+        /**
+          * Currently selected tab value
+         */
+        "value": string;
+    }
+    /**
+     * Individual toggle button within a toggle group
+     */
+    interface UiToggle {
+        /**
+          * Whether this toggle is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Value for this toggle
+         */
+        "value": string;
+    }
+    /**
+     * Toggle group for button-based selection
+     */
+    interface UiToggleGroup {
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue": string | string[];
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Get the selection manager
+         */
+        "getSelectionManager": () => Promise<SelectionManager>;
+        /**
+          * Get current value
+         */
+        "getValue": () => Promise<SelectionValue>;
+        /**
+          * Allow multiple selections
+          * @default false
+         */
+        "multiple": boolean;
+        /**
+          * Orientation for layout and keyboard navigation
+          * @default 'horizontal'
+         */
+        "orientation": 'horizontal' | 'vertical';
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size": 'sm' | 'base' | 'lg';
+        /**
+          * Selected value(s) - string for single, string[] for multiple
+         */
+        "value": string | string[];
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant": 'default' | 'outline';
+    }
     interface UiTooltip {
         /**
           * The content to display in the tooltip
@@ -135,9 +392,29 @@ export namespace Components {
         "showDelay": number;
     }
 }
+export interface UiChipCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiChipElement;
+}
+export interface UiChipGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiChipGroupElement;
+}
 export interface UiInputGroupInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUiInputGroupInputElement;
+}
+export interface UiRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiRadioGroupElement;
+}
+export interface UiTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiTabsElement;
+}
+export interface UiToggleGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUiToggleGroupElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -145,6 +422,47 @@ declare global {
     var HTMLMyComponentElement: {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
+    };
+    interface HTMLUiChipElementEventMap {
+        "remove": string;
+    }
+    /**
+     * Individual chip/tag for selection or display
+     */
+    interface HTMLUiChipElement extends Components.UiChip, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiChipElementEventMap>(type: K, listener: (this: HTMLUiChipElement, ev: UiChipCustomEvent<HTMLUiChipElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiChipElementEventMap>(type: K, listener: (this: HTMLUiChipElement, ev: UiChipCustomEvent<HTMLUiChipElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiChipElement: {
+        prototype: HTMLUiChipElement;
+        new (): HTMLUiChipElement;
+    };
+    interface HTMLUiChipGroupElementEventMap {
+        "valueChange": string[];
+        "chipRemove": string;
+    }
+    /**
+     * Chip group for tag/chip-based selection
+     */
+    interface HTMLUiChipGroupElement extends Components.UiChipGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiChipGroupElementEventMap>(type: K, listener: (this: HTMLUiChipGroupElement, ev: UiChipGroupCustomEvent<HTMLUiChipGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiChipGroupElementEventMap>(type: K, listener: (this: HTMLUiChipGroupElement, ev: UiChipGroupCustomEvent<HTMLUiChipGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiChipGroupElement: {
+        prototype: HTMLUiChipGroupElement;
+        new (): HTMLUiChipGroupElement;
     };
     interface HTMLUiInputGroupElement extends Components.UiInputGroup, HTMLStencilElement {
     }
@@ -178,6 +496,108 @@ declare global {
         prototype: HTMLUiInputGroupInputElement;
         new (): HTMLUiInputGroupInputElement;
     };
+    /**
+     * Custom styled radio option (NOT using native radio input)
+     */
+    interface HTMLUiRadioElement extends Components.UiRadio, HTMLStencilElement {
+    }
+    var HTMLUiRadioElement: {
+        prototype: HTMLUiRadioElement;
+        new (): HTMLUiRadioElement;
+    };
+    interface HTMLUiRadioGroupElementEventMap {
+        "valueChange": string;
+    }
+    /**
+     * Radio group container for single selection
+     */
+    interface HTMLUiRadioGroupElement extends Components.UiRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiRadioGroupElementEventMap>(type: K, listener: (this: HTMLUiRadioGroupElement, ev: UiRadioGroupCustomEvent<HTMLUiRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiRadioGroupElementEventMap>(type: K, listener: (this: HTMLUiRadioGroupElement, ev: UiRadioGroupCustomEvent<HTMLUiRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiRadioGroupElement: {
+        prototype: HTMLUiRadioGroupElement;
+        new (): HTMLUiRadioGroupElement;
+    };
+    /**
+     * Individual tab trigger
+     */
+    interface HTMLUiTabElement extends Components.UiTab, HTMLStencilElement {
+    }
+    var HTMLUiTabElement: {
+        prototype: HTMLUiTabElement;
+        new (): HTMLUiTabElement;
+    };
+    /**
+     * Container for tab triggers
+     */
+    interface HTMLUiTabListElement extends Components.UiTabList, HTMLStencilElement {
+    }
+    var HTMLUiTabListElement: {
+        prototype: HTMLUiTabListElement;
+        new (): HTMLUiTabListElement;
+    };
+    /**
+     * Tab panel content container
+     */
+    interface HTMLUiTabPanelElement extends Components.UiTabPanel, HTMLStencilElement {
+    }
+    var HTMLUiTabPanelElement: {
+        prototype: HTMLUiTabPanelElement;
+        new (): HTMLUiTabPanelElement;
+    };
+    interface HTMLUiTabsElementEventMap {
+        "valueChange": string;
+    }
+    interface HTMLUiTabsElement extends Components.UiTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiTabsElementEventMap>(type: K, listener: (this: HTMLUiTabsElement, ev: UiTabsCustomEvent<HTMLUiTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiTabsElementEventMap>(type: K, listener: (this: HTMLUiTabsElement, ev: UiTabsCustomEvent<HTMLUiTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiTabsElement: {
+        prototype: HTMLUiTabsElement;
+        new (): HTMLUiTabsElement;
+    };
+    /**
+     * Individual toggle button within a toggle group
+     */
+    interface HTMLUiToggleElement extends Components.UiToggle, HTMLStencilElement {
+    }
+    var HTMLUiToggleElement: {
+        prototype: HTMLUiToggleElement;
+        new (): HTMLUiToggleElement;
+    };
+    interface HTMLUiToggleGroupElementEventMap {
+        "valueChange": SelectionValue;
+    }
+    /**
+     * Toggle group for button-based selection
+     */
+    interface HTMLUiToggleGroupElement extends Components.UiToggleGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUiToggleGroupElementEventMap>(type: K, listener: (this: HTMLUiToggleGroupElement, ev: UiToggleGroupCustomEvent<HTMLUiToggleGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUiToggleGroupElementEventMap>(type: K, listener: (this: HTMLUiToggleGroupElement, ev: UiToggleGroupCustomEvent<HTMLUiToggleGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLUiToggleGroupElement: {
+        prototype: HTMLUiToggleGroupElement;
+        new (): HTMLUiToggleGroupElement;
+    };
     interface HTMLUiTooltipElement extends Components.UiTooltip, HTMLStencilElement {
     }
     var HTMLUiTooltipElement: {
@@ -186,9 +606,19 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "ui-chip": HTMLUiChipElement;
+        "ui-chip-group": HTMLUiChipGroupElement;
         "ui-input-group": HTMLUiInputGroupElement;
         "ui-input-group-addon": HTMLUiInputGroupAddonElement;
         "ui-input-group-input": HTMLUiInputGroupInputElement;
+        "ui-radio": HTMLUiRadioElement;
+        "ui-radio-group": HTMLUiRadioGroupElement;
+        "ui-tab": HTMLUiTabElement;
+        "ui-tab-list": HTMLUiTabListElement;
+        "ui-tab-panel": HTMLUiTabPanelElement;
+        "ui-tabs": HTMLUiTabsElement;
+        "ui-toggle": HTMLUiToggleElement;
+        "ui-toggle-group": HTMLUiToggleGroupElement;
         "ui-tooltip": HTMLUiTooltipElement;
     }
 }
@@ -206,6 +636,75 @@ declare namespace LocalJSX {
           * The middle name
          */
         "middle"?: string;
+    }
+    /**
+     * Individual chip/tag for selection or display
+     */
+    interface UiChip {
+        /**
+          * Whether this chip is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Emitted when remove button is clicked
+         */
+        "onRemove"?: (event: UiChipCustomEvent<string>) => void;
+        /**
+          * Whether this chip can be removed
+          * @default false
+         */
+        "removable"?: boolean;
+        /**
+          * Value for this chip
+         */
+        "value": string;
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'primary' | 'success' | 'warning' | 'error';
+    }
+    /**
+     * Chip group for tag/chip-based selection
+     */
+    interface UiChipGroup {
+        /**
+          * Default values for uncontrolled mode
+         */
+        "defaultValue"?: string[];
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Allow multiple selections (default: true for chips)
+          * @default true
+         */
+        "multiple"?: boolean;
+        /**
+          * Emitted when a chip is removed
+         */
+        "onChipRemove"?: (event: UiChipGroupCustomEvent<string>) => void;
+        /**
+          * Emitted when selection changes
+         */
+        "onValueChange"?: (event: UiChipGroupCustomEvent<string[]>) => void;
+        /**
+          * Orientation for keyboard navigation
+          * @default 'horizontal'
+         */
+        "orientation"?: 'horizontal' | 'vertical';
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size"?: 'sm' | 'base' | 'lg';
+        /**
+          * Selected values
+         */
+        "value"?: string[];
     }
     interface UiInputGroup {
         /**
@@ -303,6 +802,184 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    /**
+     * Custom styled radio option (NOT using native radio input)
+     */
+    interface UiRadio {
+        /**
+          * Whether this radio is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Indicator style
+          * @default 'dot'
+         */
+        "indicator"?: 'dot' | 'check' | 'custom';
+        /**
+          * Value for this radio option
+         */
+        "value": string;
+    }
+    /**
+     * Radio group container for single selection
+     */
+    interface UiRadioGroup {
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue"?: string;
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Name for form submission
+         */
+        "name"?: string;
+        /**
+          * Emitted when selection changes
+         */
+        "onValueChange"?: (event: UiRadioGroupCustomEvent<string>) => void;
+        /**
+          * Orientation for layout and keyboard navigation
+          * @default 'vertical'
+         */
+        "orientation"?: 'horizontal' | 'vertical';
+        /**
+          * Required for form validation
+          * @default false
+         */
+        "required"?: boolean;
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size"?: 'sm' | 'base' | 'lg';
+        /**
+          * Currently selected value
+         */
+        "value"?: string;
+    }
+    /**
+     * Individual tab trigger
+     */
+    interface UiTab {
+        /**
+          * Whether the tab is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Unique value for this tab (must match corresponding panel)
+         */
+        "value": string;
+    }
+    /**
+     * Container for tab triggers
+     */
+    interface UiTabList {
+        /**
+          * Whether tabs should stretch to fill container
+          * @default false
+         */
+        "stretch"?: boolean;
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'pills' | 'underline';
+    }
+    /**
+     * Tab panel content container
+     */
+    interface UiTabPanel {
+        /**
+          * Value matching the corresponding tab
+         */
+        "value": string;
+    }
+    interface UiTabs {
+        /**
+          * Whether tabs activate on focus (automatic) or require selection (manual)
+          * @default 'automatic'
+         */
+        "activationMode"?: 'automatic' | 'manual';
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue"?: string;
+        /**
+          * Emitted when the selected tab changes
+         */
+        "onValueChange"?: (event: UiTabsCustomEvent<string>) => void;
+        /**
+          * Orientation for keyboard navigation and layout
+          * @default 'horizontal'
+         */
+        "orientation"?: 'horizontal' | 'vertical';
+        /**
+          * Currently selected tab value
+         */
+        "value"?: string;
+    }
+    /**
+     * Individual toggle button within a toggle group
+     */
+    interface UiToggle {
+        /**
+          * Whether this toggle is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Value for this toggle
+         */
+        "value": string;
+    }
+    /**
+     * Toggle group for button-based selection
+     */
+    interface UiToggleGroup {
+        /**
+          * Default value for uncontrolled mode
+         */
+        "defaultValue"?: string | string[];
+        /**
+          * Whether entire group is disabled
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Allow multiple selections
+          * @default false
+         */
+        "multiple"?: boolean;
+        /**
+          * Emitted when selection changes
+         */
+        "onValueChange"?: (event: UiToggleGroupCustomEvent<SelectionValue>) => void;
+        /**
+          * Orientation for layout and keyboard navigation
+          * @default 'horizontal'
+         */
+        "orientation"?: 'horizontal' | 'vertical';
+        /**
+          * Size variant
+          * @default 'base'
+         */
+        "size"?: 'sm' | 'base' | 'lg';
+        /**
+          * Selected value(s) - string for single, string[] for multiple
+         */
+        "value"?: string | string[];
+        /**
+          * Visual variant
+          * @default 'default'
+         */
+        "variant"?: 'default' | 'outline';
+    }
     interface UiTooltip {
         /**
           * The content to display in the tooltip
@@ -337,9 +1014,19 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "ui-chip": UiChip;
+        "ui-chip-group": UiChipGroup;
         "ui-input-group": UiInputGroup;
         "ui-input-group-addon": UiInputGroupAddon;
         "ui-input-group-input": UiInputGroupInput;
+        "ui-radio": UiRadio;
+        "ui-radio-group": UiRadioGroup;
+        "ui-tab": UiTab;
+        "ui-tab-list": UiTabList;
+        "ui-tab-panel": UiTabPanel;
+        "ui-tabs": UiTabs;
+        "ui-toggle": UiToggle;
+        "ui-toggle-group": UiToggleGroup;
         "ui-tooltip": UiTooltip;
     }
 }
@@ -348,9 +1035,46 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            /**
+             * Individual chip/tag for selection or display
+             */
+            "ui-chip": LocalJSX.UiChip & JSXBase.HTMLAttributes<HTMLUiChipElement>;
+            /**
+             * Chip group for tag/chip-based selection
+             */
+            "ui-chip-group": LocalJSX.UiChipGroup & JSXBase.HTMLAttributes<HTMLUiChipGroupElement>;
             "ui-input-group": LocalJSX.UiInputGroup & JSXBase.HTMLAttributes<HTMLUiInputGroupElement>;
             "ui-input-group-addon": LocalJSX.UiInputGroupAddon & JSXBase.HTMLAttributes<HTMLUiInputGroupAddonElement>;
             "ui-input-group-input": LocalJSX.UiInputGroupInput & JSXBase.HTMLAttributes<HTMLUiInputGroupInputElement>;
+            /**
+             * Custom styled radio option (NOT using native radio input)
+             */
+            "ui-radio": LocalJSX.UiRadio & JSXBase.HTMLAttributes<HTMLUiRadioElement>;
+            /**
+             * Radio group container for single selection
+             */
+            "ui-radio-group": LocalJSX.UiRadioGroup & JSXBase.HTMLAttributes<HTMLUiRadioGroupElement>;
+            /**
+             * Individual tab trigger
+             */
+            "ui-tab": LocalJSX.UiTab & JSXBase.HTMLAttributes<HTMLUiTabElement>;
+            /**
+             * Container for tab triggers
+             */
+            "ui-tab-list": LocalJSX.UiTabList & JSXBase.HTMLAttributes<HTMLUiTabListElement>;
+            /**
+             * Tab panel content container
+             */
+            "ui-tab-panel": LocalJSX.UiTabPanel & JSXBase.HTMLAttributes<HTMLUiTabPanelElement>;
+            "ui-tabs": LocalJSX.UiTabs & JSXBase.HTMLAttributes<HTMLUiTabsElement>;
+            /**
+             * Individual toggle button within a toggle group
+             */
+            "ui-toggle": LocalJSX.UiToggle & JSXBase.HTMLAttributes<HTMLUiToggleElement>;
+            /**
+             * Toggle group for button-based selection
+             */
+            "ui-toggle-group": LocalJSX.UiToggleGroup & JSXBase.HTMLAttributes<HTMLUiToggleGroupElement>;
             "ui-tooltip": LocalJSX.UiTooltip & JSXBase.HTMLAttributes<HTMLUiTooltipElement>;
         }
     }

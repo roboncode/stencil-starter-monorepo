@@ -1,0 +1,219 @@
+/**
+ * Selection Components - Shared Design Tokens
+ *
+ * These tokens are used across all selection-based components:
+ * - Tabs
+ * - Radio Groups
+ * - Toggle Groups
+ * - Chip Groups
+ */
+
+:root,
+[data-theme="light"] {
+  /* ========================================
+     Size Variants
+     ======================================== */
+
+  /* Heights */
+  --selection-height-sm: 1.75rem;
+  --selection-height-base: 2.25rem;
+  --selection-height-lg: 2.75rem;
+
+  /* Padding */
+  --selection-padding-x-sm: 0.5rem;
+  --selection-padding-x-base: 0.75rem;
+  --selection-padding-x-lg: 1rem;
+
+  --selection-padding-y-sm: 0.25rem;
+  --selection-padding-y-base: 0.375rem;
+  --selection-padding-y-lg: 0.5rem;
+
+  /* Gaps */
+  --selection-gap-sm: 0.25rem;
+  --selection-gap-base: 0.5rem;
+  --selection-gap-lg: 0.75rem;
+
+  /* Font sizes */
+  --selection-font-size-sm: 0.75rem;
+  --selection-font-size-base: 0.875rem;
+  --selection-font-size-lg: 1rem;
+
+  /* Icon sizes */
+  --selection-icon-size-sm: 0.875rem;
+  --selection-icon-size-base: 1rem;
+  --selection-icon-size-lg: 1.25rem;
+
+  /* ========================================
+     Default State
+     ======================================== */
+  --selection-bg: transparent;
+  --selection-border: var(--theme-border-default, #e5e5e5);
+  --selection-text: var(--theme-text-primary, #171717);
+
+  /* ========================================
+     Hover State
+     ======================================== */
+  --selection-hover-bg: var(--theme-bg-tertiary, #f5f5f5);
+  --selection-hover-border: var(--theme-border-strong, #d4d4d4);
+  --selection-hover-text: var(--theme-text-primary, #171717);
+
+  /* ========================================
+     Selected State (Filled)
+     ======================================== */
+  --selection-selected-bg: var(--theme-primary, #3b82f6);
+  --selection-selected-border: var(--theme-primary, #3b82f6);
+  --selection-selected-text: #ffffff;
+
+  /* ========================================
+     Selected State (Subtle/Outline)
+     ======================================== */
+  --selection-selected-subtle-bg: var(--theme-primary-subtle, #eff6ff);
+  --selection-selected-subtle-border: var(--theme-primary, #3b82f6);
+  --selection-selected-subtle-text: var(--theme-primary, #3b82f6);
+
+  /* ========================================
+     Disabled State
+     ======================================== */
+  --selection-disabled-opacity: 0.5;
+  --selection-disabled-bg: var(--theme-bg-tertiary, #f5f5f5);
+  --selection-disabled-border: var(--theme-border-default, #e5e5e5);
+  --selection-disabled-text: var(--theme-text-muted, #a3a3a3);
+
+  /* ========================================
+     Focus State
+     ======================================== */
+  --selection-focus-ring: 0 0 0 2px var(--theme-bg-primary, #ffffff),
+                          0 0 0 4px var(--theme-primary, #3b82f6);
+  --selection-focus-ring-offset: 2px;
+
+  /* ========================================
+     Border Radius
+     ======================================== */
+  --selection-radius-sm: 0.25rem;
+  --selection-radius-base: 0.375rem;
+  --selection-radius-lg: 0.5rem;
+  --selection-radius-pill: 9999px;
+
+  /* ========================================
+     Transitions
+     ======================================== */
+  --selection-transition: background-color 150ms ease,
+                          border-color 150ms ease,
+                          color 150ms ease,
+                          box-shadow 150ms ease,
+                          transform 150ms ease;
+
+  /* ========================================
+     Tab-Specific Tokens
+     ======================================== */
+  --tab-indicator-height: 2px;
+  --tab-indicator-color: var(--theme-primary, #3b82f6);
+  --tab-border-color: var(--theme-border-default, #e5e5e5);
+  --tab-active-text: var(--theme-primary, #3b82f6);
+
+  /* ========================================
+     Radio-Specific Tokens
+     ======================================== */
+  --radio-control-size-sm: 1rem;
+  --radio-control-size-base: 1.25rem;
+  --radio-control-size-lg: 1.5rem;
+  --radio-indicator-size: 0.5rem;
+  --radio-control-border-width: 2px;
+
+  /* ========================================
+     Toggle-Specific Tokens
+     ======================================== */
+  --toggle-min-width-sm: 2rem;
+  --toggle-min-width-base: 2.5rem;
+  --toggle-min-width-lg: 3rem;
+
+  /* ========================================
+     Chip-Specific Tokens
+     ======================================== */
+  --chip-remove-size: 1.25rem;
+  --chip-remove-hover-bg: rgba(0, 0, 0, 0.1);
+
+  /* Chip variants */
+  --chip-default-bg: var(--theme-bg-tertiary, #f5f5f5);
+  --chip-default-border: var(--theme-border-default, #e5e5e5);
+  --chip-default-text: var(--theme-text-primary, #171717);
+
+  --chip-primary-bg: var(--theme-primary-subtle, #eff6ff);
+  --chip-primary-border: var(--theme-primary, #3b82f6);
+  --chip-primary-text: var(--theme-primary, #3b82f6);
+
+  --chip-success-bg: #f0fdf4;
+  --chip-success-border: #22c55e;
+  --chip-success-text: #16a34a;
+
+  --chip-warning-bg: #fffbeb;
+  --chip-warning-border: #f59e0b;
+  --chip-warning-text: #d97706;
+
+  --chip-error-bg: #fef2f2;
+  --chip-error-border: #ef4444;
+  --chip-error-text: #dc2626;
+}
+
+/* ========================================
+   Dark Theme Overrides
+   ======================================== */
+[data-theme="dark"] {
+  /* Default state */
+  --selection-bg: transparent;
+  --selection-border: var(--theme-border-default, #404040);
+  --selection-text: var(--theme-text-primary, #fafafa);
+
+  /* Hover state */
+  --selection-hover-bg: var(--theme-bg-tertiary, #262626);
+  --selection-hover-border: var(--theme-border-strong, #525252);
+  --selection-hover-text: var(--theme-text-primary, #fafafa);
+
+  /* Selected state (filled) */
+  --selection-selected-bg: var(--theme-primary, #60a5fa);
+  --selection-selected-border: var(--theme-primary, #60a5fa);
+  --selection-selected-text: #171717;
+
+  /* Selected state (subtle) */
+  --selection-selected-subtle-bg: rgba(96, 165, 250, 0.15);
+  --selection-selected-subtle-border: var(--theme-primary, #60a5fa);
+  --selection-selected-subtle-text: var(--theme-primary, #60a5fa);
+
+  /* Disabled state */
+  --selection-disabled-bg: var(--theme-bg-tertiary, #262626);
+  --selection-disabled-border: var(--theme-border-default, #404040);
+  --selection-disabled-text: var(--theme-text-muted, #737373);
+
+  /* Focus ring */
+  --selection-focus-ring: 0 0 0 2px var(--theme-bg-primary, #0a0a0a),
+                          0 0 0 4px var(--theme-primary, #60a5fa);
+
+  /* Tab-specific */
+  --tab-indicator-color: var(--theme-primary, #60a5fa);
+  --tab-border-color: var(--theme-border-default, #404040);
+  --tab-active-text: var(--theme-primary, #60a5fa);
+
+  /* Chip remove */
+  --chip-remove-hover-bg: rgba(255, 255, 255, 0.1);
+
+  /* Chip variants (dark mode) */
+  --chip-default-bg: var(--theme-bg-tertiary, #262626);
+  --chip-default-border: var(--theme-border-default, #404040);
+  --chip-default-text: var(--theme-text-primary, #fafafa);
+
+  --chip-primary-bg: rgba(96, 165, 250, 0.15);
+  --chip-primary-border: #60a5fa;
+  --chip-primary-text: #60a5fa;
+
+  --chip-success-bg: rgba(74, 222, 128, 0.15);
+  --chip-success-border: #4ade80;
+  --chip-success-text: #4ade80;
+
+  --chip-warning-bg: rgba(251, 191, 36, 0.15);
+  --chip-warning-border: #fbbf24;
+  --chip-warning-text: #fbbf24;
+
+  --chip-error-bg: rgba(248, 113, 113, 0.15);
+  --chip-error-border: #f87171;
+  --chip-error-text: #f87171;
+}

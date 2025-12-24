@@ -1,0 +1,101 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--selection-gap-sm, 0.25rem);
+  padding: var(--selection-padding-y-base, 0.375rem) var(--selection-padding-x-base, 0.75rem);
+  font-size: var(--selection-font-size-base, 0.875rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--theme-text-secondary, #525252);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  transition: var(--selection-transition);
+  position: relative;
+  margin-bottom: -1px;
+}
+
+/* Hover state */
+:host(:hover:not([data-disabled])) {
+  color: var(--theme-text-primary, #171717);
+}
+
+/* Focus state */
+:host(:focus-visible) {
+  outline: none;
+  box-shadow: var(--selection-focus-ring);
+  border-radius: var(--selection-radius-sm, 0.25rem);
+  z-index: 1;
+}
+
+/* Selected state */
+:host([data-selected]) {
+  color: var(--tab-active-text, #3b82f6);
+  border-bottom-color: var(--tab-indicator-color, #3b82f6);
+}
+
+/* Disabled state */
+:host([data-disabled]) {
+  opacity: var(--selection-disabled-opacity, 0.5);
+  cursor: not-allowed;
+}
+
+/* Tab label */
+.tab-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Icons */
+::slotted([slot="icon-start"]),
+::slotted([slot="icon-end"]) {
+  font-size: var(--selection-icon-size-base, 1rem);
+}
+
+/* ========================================
+   Pills variant (via parent context)
+   ======================================== */
+:host-context(ui-tab-list.tab-list--pills) {
+  border-bottom: none;
+  border-radius: var(--selection-radius-base, 0.375rem);
+  margin-bottom: 0;
+  padding: var(--selection-padding-y-sm, 0.25rem) var(--selection-padding-x-base, 0.75rem);
+}
+
+:host-context(ui-tab-list.tab-list--pills):host([data-selected]) {
+  background: var(--theme-bg-primary, #ffffff);
+  color: var(--theme-text-primary, #171717);
+  box-shadow: var(--theme-shadow-sm, 0 1px 2px 0 rgb(0 0 0 / 0.05));
+}
+
+:host-context(ui-tab-list.tab-list--pills):host(:hover:not([data-disabled]):not([data-selected])) {
+  background: var(--theme-bg-elevated, #ffffff);
+}
+
+/* ========================================
+   Underline variant (via parent context)
+   ======================================== */
+:host-context(ui-tab-list.tab-list--underline) {
+  padding-bottom: calc(var(--selection-padding-y-base, 0.375rem) + 2px);
+  margin-bottom: -1px;
+}
+
+/* ========================================
+   Vertical orientation
+   ======================================== */
+:host-context(ui-tabs[data-orientation="vertical"]) {
+  width: 100%;
+  justify-content: flex-start;
+  border-bottom: none;
+  border-right: 2px solid transparent;
+  margin-bottom: 0;
+  margin-right: -1px;
+}
+
+:host-context(ui-tabs[data-orientation="vertical"]):host([data-selected]) {
+  border-right-color: var(--tab-indicator-color, #3b82f6);
+  border-bottom-color: transparent;
+}

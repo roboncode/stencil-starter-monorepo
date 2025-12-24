@@ -167,3 +167,10 @@
   color: var(--theme-error);
   margin-top: 0.25rem;
 }
+
+/* Size variants container */
+.size-variants {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
