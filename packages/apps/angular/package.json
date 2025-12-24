@@ -1,5 +1,5 @@
 {
-  "name": "angular-app",
+  "name": "@app/angular",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,8 +22,8 @@
   },
   "private": true,
   "dependencies": {
-    "angular-components": "file:../angular-components/dist",
-    "web-components": "workspace:*",
+    "@components/angular": "file:../../components/angular/dist",
+    "@components/core": "workspace:*",
     "@angular/common": "^21.0.0",
     "@angular/compiler": "^21.0.0",
     "@angular/core": "^21.0.0",

@@ -1,7 +1,7 @@
 /* Global Styles */
 
-/* Import theme tokens from web-components */
-@import 'web-components/styles/themes.css';
+/* Import theme tokens from @components/core */
+@import '@components/core/styles/themes.css';
 /* @import '../custom-theme.css'; */
 
 /* ========================================

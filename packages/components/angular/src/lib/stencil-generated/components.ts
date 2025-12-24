@@ -4,23 +4,23 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Even
 
 import { ProxyCmp } from './angular-component-lib/utils';
 
-import type { Components } from 'web-components/components';
+import type { Components } from '@components/core/components';
 
-import { defineCustomElement as defineMyComponent } from 'web-components/components/my-component.js';
-import { defineCustomElement as defineUiChip } from 'web-components/components/ui-chip.js';
-import { defineCustomElement as defineUiChipGroup } from 'web-components/components/ui-chip-group.js';
-import { defineCustomElement as defineUiInputGroup } from 'web-components/components/ui-input-group.js';
-import { defineCustomElement as defineUiInputGroupAddon } from 'web-components/components/ui-input-group-addon.js';
-import { defineCustomElement as defineUiInputGroupInput } from 'web-components/components/ui-input-group-input.js';
-import { defineCustomElement as defineUiRadio } from 'web-components/components/ui-radio.js';
-import { defineCustomElement as defineUiRadioGroup } from 'web-components/components/ui-radio-group.js';
-import { defineCustomElement as defineUiTab } from 'web-components/components/ui-tab.js';
-import { defineCustomElement as defineUiTabList } from 'web-components/components/ui-tab-list.js';
-import { defineCustomElement as defineUiTabPanel } from 'web-components/components/ui-tab-panel.js';
-import { defineCustomElement as defineUiTabs } from 'web-components/components/ui-tabs.js';
-import { defineCustomElement as defineUiToggle } from 'web-components/components/ui-toggle.js';
-import { defineCustomElement as defineUiToggleGroup } from 'web-components/components/ui-toggle-group.js';
-import { defineCustomElement as defineUiTooltip } from 'web-components/components/ui-tooltip.js';
+import { defineCustomElement as defineMyComponent } from '@components/core/components/my-component.js';
+import { defineCustomElement as defineUiChip } from '@components/core/components/ui-chip.js';
+import { defineCustomElement as defineUiChipGroup } from '@components/core/components/ui-chip-group.js';
+import { defineCustomElement as defineUiInputGroup } from '@components/core/components/ui-input-group.js';
+import { defineCustomElement as defineUiInputGroupAddon } from '@components/core/components/ui-input-group-addon.js';
+import { defineCustomElement as defineUiInputGroupInput } from '@components/core/components/ui-input-group-input.js';
+import { defineCustomElement as defineUiRadio } from '@components/core/components/ui-radio.js';
+import { defineCustomElement as defineUiRadioGroup } from '@components/core/components/ui-radio-group.js';
+import { defineCustomElement as defineUiTab } from '@components/core/components/ui-tab.js';
+import { defineCustomElement as defineUiTabList } from '@components/core/components/ui-tab-list.js';
+import { defineCustomElement as defineUiTabPanel } from '@components/core/components/ui-tab-panel.js';
+import { defineCustomElement as defineUiTabs } from '@components/core/components/ui-tabs.js';
+import { defineCustomElement as defineUiToggle } from '@components/core/components/ui-toggle.js';
+import { defineCustomElement as defineUiToggleGroup } from '@components/core/components/ui-toggle-group.js';
+import { defineCustomElement as defineUiTooltip } from '@components/core/components/ui-tooltip.js';
 @ProxyCmp({
   defineCustomElementFn: defineMyComponent,
   inputs: ['first', 'last', 'middle']
@@ -401,7 +401,7 @@ export class UiToggleGroup {
 }
 
 
-import type { SelectionValue as IUiToggleGroupSelectionValue } from 'web-components/components';
+import type { SelectionValue as IUiToggleGroupSelectionValue } from '@components/core/components';
 
 export declare interface UiToggleGroup extends Components.UiToggleGroup {
   /**

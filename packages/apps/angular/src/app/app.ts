@@ -17,7 +17,7 @@ import {
   UiToggle,
   UiChipGroup,
   UiChip
-} from 'angular-components';
+} from '@components/angular';
 
 @Component({
   selector: 'app-root',

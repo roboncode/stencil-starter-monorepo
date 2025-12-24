@@ -16,7 +16,7 @@ import {
   UiToggle,
   UiToggleGroup,
   UiTooltip
-} from 'react-components';
+} from '@components/react';
 
 import { useState } from 'react';
 

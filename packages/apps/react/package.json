@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "@app/react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,8 +13,8 @@
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-components": "workspace:*",
-    "web-components": "workspace:*"
+    "@components/react": "workspace:*",
+    "@components/core": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

@@ -1,5 +1,5 @@
 {
-  "name": "react-components",
+  "name": "@components/react",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,7 +13,7 @@
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0",
-    "web-components": ">=0.0.1"
+    "@components/core": ">=0.0.1"
   },
   "dependencies": {
     "@stencil/react-output-target": "^1.0.0"
@@ -24,6 +24,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "~5.9.2",
-    "web-components": "workspace:*"
+    "@components/core": "workspace:*"
   }
 }

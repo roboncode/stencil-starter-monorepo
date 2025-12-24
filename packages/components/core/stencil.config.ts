@@ -3,7 +3,7 @@ import { angularOutputTarget } from '@stencil/angular-output-target';
 import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
-  namespace: 'web-components',
+  namespace: 'core',
   outputTargets: [
     {
       type: 'dist',
@@ -27,13 +27,13 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
     angularOutputTarget({
-      componentCorePackage: 'web-components',
+      componentCorePackage: '@components/core',
       outputType: 'standalone',
-      directivesProxyFile: '../angular-components/src/lib/stencil-generated/components.ts',
-      directivesArrayFile: '../angular-components/src/lib/stencil-generated/index.ts',
+      directivesProxyFile: '../angular/src/lib/stencil-generated/components.ts',
+      directivesArrayFile: '../angular/src/lib/stencil-generated/index.ts',
     }),
     reactOutputTarget({
-      outDir: '../react-components/src/lib/stencil-generated/',
+      outDir: '../react/src/lib/stencil-generated/',
     }),
   ],
   testing: {

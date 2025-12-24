@@ -1,18 +1,18 @@
 {
-  "name": "web-components",
+  "name": "@components/core",
   "version": "0.0.1",
-  "description": "Web Components Library",
+  "description": "Core Web Components Library",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/web-components/web-components.esm.js",
+  "unpkg": "dist/core/core.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/web-components/web-components.esm.js",
-      "require": "./dist/cjs/web-components.cjs.js",
-      "types": "./dist/types/index.d.ts"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/core/core.esm.js",
+      "require": "./dist/cjs/core.cjs.js"
     },
     "./components": {
       "import": "./dist/components/index.js",
@@ -51,9 +51,9 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs"
     },
-    "./styles/themes.css": "./dist/web-components/styles/themes.css",
-    "./styles/tokens.css": "./dist/web-components/styles/tokens.css",
-    "./styles/*": "./dist/web-components/styles/*"
+    "./styles/themes.css": "./dist/core/styles/themes.css",
+    "./styles/tokens.css": "./dist/core/styles/tokens.css",
+    "./styles/*": "./dist/core/styles/*"
   },
   "files": [
     "dist/",

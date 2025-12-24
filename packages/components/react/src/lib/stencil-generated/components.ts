@@ -7,25 +7,25 @@
 
 /* eslint-disable */
 
+import { type SelectionValue, type UiToggleGroupCustomEvent } from "@components/core";
+import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "@components/core/dist/components/my-component.js";
+import { UiChipGroup as UiChipGroupElement, defineCustomElement as defineUiChipGroup } from "@components/core/dist/components/ui-chip-group.js";
+import { UiChip as UiChipElement, defineCustomElement as defineUiChip } from "@components/core/dist/components/ui-chip.js";
+import { UiInputGroupAddon as UiInputGroupAddonElement, defineCustomElement as defineUiInputGroupAddon } from "@components/core/dist/components/ui-input-group-addon.js";
+import { UiInputGroupInput as UiInputGroupInputElement, defineCustomElement as defineUiInputGroupInput } from "@components/core/dist/components/ui-input-group-input.js";
+import { UiInputGroup as UiInputGroupElement, defineCustomElement as defineUiInputGroup } from "@components/core/dist/components/ui-input-group.js";
+import { UiRadioGroup as UiRadioGroupElement, defineCustomElement as defineUiRadioGroup } from "@components/core/dist/components/ui-radio-group.js";
+import { UiRadio as UiRadioElement, defineCustomElement as defineUiRadio } from "@components/core/dist/components/ui-radio.js";
+import { UiTabList as UiTabListElement, defineCustomElement as defineUiTabList } from "@components/core/dist/components/ui-tab-list.js";
+import { UiTabPanel as UiTabPanelElement, defineCustomElement as defineUiTabPanel } from "@components/core/dist/components/ui-tab-panel.js";
+import { UiTab as UiTabElement, defineCustomElement as defineUiTab } from "@components/core/dist/components/ui-tab.js";
+import { UiTabs as UiTabsElement, defineCustomElement as defineUiTabs } from "@components/core/dist/components/ui-tabs.js";
+import { UiToggleGroup as UiToggleGroupElement, defineCustomElement as defineUiToggleGroup } from "@components/core/dist/components/ui-toggle-group.js";
+import { UiToggle as UiToggleElement, defineCustomElement as defineUiToggle } from "@components/core/dist/components/ui-toggle.js";
+import { UiTooltip as UiTooltipElement, defineCustomElement as defineUiTooltip } from "@components/core/dist/components/ui-tooltip.js";
 import type { EventName, StencilReactComponent } from '@stencil/react-output-target/runtime';
 import { createComponent } from '@stencil/react-output-target/runtime';
 import React from 'react';
-import { type SelectionValue, type UiToggleGroupCustomEvent } from "web-components";
-import { MyComponent as MyComponentElement, defineCustomElement as defineMyComponent } from "web-components/dist/components/my-component.js";
-import { UiChipGroup as UiChipGroupElement, defineCustomElement as defineUiChipGroup } from "web-components/dist/components/ui-chip-group.js";
-import { UiChip as UiChipElement, defineCustomElement as defineUiChip } from "web-components/dist/components/ui-chip.js";
-import { UiInputGroupAddon as UiInputGroupAddonElement, defineCustomElement as defineUiInputGroupAddon } from "web-components/dist/components/ui-input-group-addon.js";
-import { UiInputGroupInput as UiInputGroupInputElement, defineCustomElement as defineUiInputGroupInput } from "web-components/dist/components/ui-input-group-input.js";
-import { UiInputGroup as UiInputGroupElement, defineCustomElement as defineUiInputGroup } from "web-components/dist/components/ui-input-group.js";
-import { UiRadioGroup as UiRadioGroupElement, defineCustomElement as defineUiRadioGroup } from "web-components/dist/components/ui-radio-group.js";
-import { UiRadio as UiRadioElement, defineCustomElement as defineUiRadio } from "web-components/dist/components/ui-radio.js";
-import { UiTabList as UiTabListElement, defineCustomElement as defineUiTabList } from "web-components/dist/components/ui-tab-list.js";
-import { UiTabPanel as UiTabPanelElement, defineCustomElement as defineUiTabPanel } from "web-components/dist/components/ui-tab-panel.js";
-import { UiTab as UiTabElement, defineCustomElement as defineUiTab } from "web-components/dist/components/ui-tab.js";
-import { UiTabs as UiTabsElement, defineCustomElement as defineUiTabs } from "web-components/dist/components/ui-tabs.js";
-import { UiToggleGroup as UiToggleGroupElement, defineCustomElement as defineUiToggleGroup } from "web-components/dist/components/ui-toggle-group.js";
-import { UiToggle as UiToggleElement, defineCustomElement as defineUiToggle } from "web-components/dist/components/ui-toggle.js";
-import { UiTooltip as UiTooltipElement, defineCustomElement as defineUiTooltip } from "web-components/dist/components/ui-tooltip.js";
 
 export type MyComponentEvents = NonNullable<unknown>;
 
