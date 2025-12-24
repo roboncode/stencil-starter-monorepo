@@ -1,29 +1,27 @@
-# Angular + Stencil Starter
+# Stencil Starter Monorepo
 
-A monorepo starter template for building reusable Stencil web components with full Angular integration, including type safety and auto-completion.
+A monorepo for building reusable Stencil web components with framework wrappers for Angular and React, including full type safety, auto-completion, and Storybook documentation.
 
 ## Project Structure
 
 ```
-angular-stencil-starter/
+stencil-starter-monorepo/
 ├── packages/
-│   ├── components/              # Stencil web components library
-│   │   ├── src/components/      # Component source files
-│   │   └── dist/                # Built component output
-│   ├── components-angular/      # Angular wrapper library
-│   │   ├── projects/
-│   │   │   └── component-library/
-│   │   │       └── src/lib/stencil-generated/  # Generated wrappers
-│   │   └── dist/                # Built Angular library
-│   └── app/                     # Angular application
-│       └── src/
-├── package.json                 # Root workspace config
-└── pnpm-workspace.yaml          # PNPM workspace definition
+│   ├── components/
+│   │   ├── core/                 # @components/core - Stencil web components
+│   │   ├── angular/              # @components/angular - Angular wrappers
+│   │   └── react/                # @components/react - React wrappers
+│   └── apps/
+│       ├── angular/              # @app/angular - Angular demo app
+│       ├── react/                # @app/react - React demo app
+│       └── storybook/            # @app/storybook - Component documentation
+├── package.json
+└── pnpm-workspace.yaml
 ```
 
 ## Prerequisites
 
-- Node.js (v18 or higher recommended)
+- Node.js (v18 or higher)
 - PNPM (v10 or higher)
 
 ## Getting Started
@@ -41,154 +39,219 @@ pnpm build
 ```
 
 This builds in order:
-1. Stencil components (generates Angular wrappers)
-2. Angular wrapper library (compiles wrappers)
-3. Angular application
+1. `@components/core` - Stencil components (also generates framework wrappers)
+2. `@components/angular` - Angular wrapper library
+3. `@components/react` - React wrapper library
+4. `@app/angular` - Angular application
+5. `@app/react` - React application
 
 ### 3. Start Development
 
 ```bash
+# Start both Angular and React apps
 pnpm dev
-```
 
-This builds components and the Angular library, then starts the Angular dev server.
+# Or start individually
+pnpm dev:angular    # Angular app at http://localhost:4200
+pnpm dev:react      # React app at http://localhost:5173
+pnpm dev:storybook  # Storybook at http://localhost:6006
+```
 
 ## Available Scripts
 
 | Command | Description |
 |---------|-------------|
-| `pnpm install` | Install all dependencies across the workspace |
+| `pnpm install` | Install all dependencies |
 | `pnpm build` | Build everything in correct order |
-| `pnpm build:components` | Build Stencil components |
-| `pnpm build:components-angular` | Build Angular wrapper library |
-| `pnpm build:app` | Build Angular app |
-| `pnpm dev` | Build components + wrappers, then start dev server |
-| `pnpm start` | Start Angular dev server (requires prior build) |
-| `pnpm start:components` | Start Stencil dev server with hot reload |
+| `pnpm build:core` | Build Stencil components + generate JSX types |
+| `pnpm build:angular` | Build Angular wrapper library |
+| `pnpm build:react` | Build React wrapper library |
+| `pnpm build:app:angular` | Build Angular app |
+| `pnpm build:app:react` | Build React app |
+| `pnpm build:storybook` | Build Storybook for deployment |
+| `pnpm dev` | Build and start both Angular and React apps |
+| `pnpm dev:angular` | Build core + Angular wrappers, start Angular app |
+| `pnpm dev:react` | Build core + React wrappers, start React app |
+| `pnpm dev:storybook` | Build core, start Storybook dev server |
+| `pnpm start:core` | Start Stencil dev server with hot reload |
 | `pnpm test` | Run tests in all packages |
 | `pnpm clean` | Remove all node_modules and dist directories |
 
-## Using Stencil Components in Angular
+## Using Components
 
-### Importing Components
-
-Import components directly with full type safety and auto-completion:
+### In Angular
 
 ```typescript
 import { Component } from '@angular/core';
-import { MyComponent } from 'component-library';
+import { UiChip, UiChipGroup } from '@components/angular';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [MyComponent],
+  imports: [UiChip, UiChipGroup],
   template: `
-    <my-component
-      [first]="firstName"
-      [last]="lastName"
-      (myEvent)="handleEvent($event)">
-    </my-component>
+    <ui-chip-group [multiple]="true" (valueChange)="onSelect($event)">
+      <ui-chip value="one">Option 1</ui-chip>
+      <ui-chip value="two">Option 2</ui-chip>
+      <ui-chip value="three">Option 3</ui-chip>
+    </ui-chip-group>
   `
 })
 export class ExampleComponent {
-  firstName = 'Hello';
-  lastName = 'World';
-
-  handleEvent(event: CustomEvent) {
-    console.log(event.detail);
+  onSelect(event: CustomEvent<string[]>) {
+    console.log('Selected:', event.detail);
   }
 }
 ```
 
-### Benefits of Angular Wrappers
+### In React
 
-- **Type Safety**: Full TypeScript support with proper types for inputs/outputs
-- **Auto-completion**: IDE support for component properties and events
-- **Angular Bindings**: Use `[property]` and `(event)` syntax naturally
-- **RxJS Integration**: Events can be converted to Observables
-- **No CUSTOM_ELEMENTS_SCHEMA**: Components are proper Angular directives
+```tsx
+import { UiChip, UiChipGroup } from '@components/react';
 
-## Creating New Stencil Components
-
-Generate a new component in the components package:
-
-```bash
-cd packages/components
-pnpm generate
+function Example() {
+  return (
+    <UiChipGroup multiple onValueChange={(e) => console.log(e.detail)}>
+      <UiChip value="one">Option 1</UiChip>
+      <UiChip value="two">Option 2</UiChip>
+      <UiChip value="three">Option 3</UiChip>
+    </UiChipGroup>
+  );
+}
 ```
 
-After creating your component:
+### Directly as Web Components
 
-1. Implement your component in `src/components/<name>/`
-2. Run `pnpm build:components` to generate Angular wrappers
-3. Run `pnpm build:components-angular` to compile wrappers
-4. Import and use in Angular apps via `component-library`
+```html
+<script type="module" src="@components/core"></script>
+<link rel="stylesheet" href="@components/core/styles/themes.css">
+<link rel="stylesheet" href="@components/core/styles/tokens.css">
 
-## Adding New Angular Applications
+<ui-chip-group multiple>
+  <ui-chip value="one">Option 1</ui-chip>
+  <ui-chip value="two">Option 2</ui-chip>
+</ui-chip-group>
+```
 
-To add another Angular app that uses the shared components:
+## Storybook
 
-1. Create a new Angular app in `packages/`:
+Storybook provides interactive documentation for all components with:
+- Live examples with controls
+- Auto-generated documentation from TypeScript types
+- Theme switching (light/dark mode)
+- Full JSX auto-completion in story files
+
+```bash
+pnpm dev:storybook
+```
+
+Stories are written in TSX with full type support:
+
+```tsx
+// packages/apps/storybook/src/stories/UiChip.stories.tsx
+import '@components/core';
+import type { Meta, StoryObj } from '@storybook/web-components';
+
+const meta: Meta = {
+  title: 'Components/UiChip',
+  render: (args) => (
+    <ui-chip value="example" variant={args.variant}>
+      Chip Label
+    </ui-chip>
+  ),
+};
+```
+
+## Creating New Components
+
+1. Generate a new component:
    ```bash
-   cd packages
-   ng new my-new-app --skip-git
+   cd packages/components/core
+   pnpm generate
    ```
 
-2. Add dependencies to the new app's `package.json`:
-   ```json
-   {
-     "dependencies": {
-       "component-library": "file:../components-angular/dist/component-library",
-       "components": "workspace:*"
-     }
-   }
+2. Implement your component in `src/components/<name>/`
+
+3. Build to generate framework wrappers:
+   ```bash
+   pnpm build:core
    ```
 
-3. Run `pnpm install` from the root
+4. The component is now available in:
+   - `@components/core` (web component)
+   - `@components/angular` (Angular wrapper)
+   - `@components/react` (React wrapper)
 
-4. Import and use components:
-   ```typescript
-   import { MyComponent } from 'component-library';
+## Architecture
 
-   @Component({
-     imports: [MyComponent],
-     // ...
-   })
-   ```
+### Build Pipeline
 
-## Architecture Notes
+```
+@components/core (Stencil)
+    │
+    ├── Compiles web components
+    ├── Generates Angular wrappers → @components/angular
+    ├── Generates React wrappers → @components/react
+    └── Generates JSX types → @app/storybook/src/jsx.d.ts
 
-### Build Order
+@components/angular
+    └── Compiles Angular wrappers with ng-packagr
 
-The build order is important:
+@components/react
+    └── Bundles React wrappers with TypeScript
+```
 
-1. **Stencil components** (`pnpm build:components`)
-   - Compiles web components to `dist/`
-   - Generates Angular wrappers to `components-angular/projects/component-library/src/lib/stencil-generated/`
+### Package Dependencies
 
-2. **Angular wrapper library** (`pnpm build:components-angular`)
-   - Compiles TypeScript wrappers with Angular's AOT compiler
-   - Outputs to `components-angular/dist/component-library/`
+```
+@app/angular ──────► @components/angular ──────► @components/core
+@app/react ────────► @components/react ─────────► @components/core
+@app/storybook ────► @components/core
+```
 
-3. **Angular applications** (`pnpm build:app`)
-   - Import compiled library from `component-library`
+### Framework Wrappers
 
-### Why a Separate Angular Library?
+The Angular and React wrappers provide:
+- **Type Safety**: Full TypeScript support for props and events
+- **Auto-completion**: IDE support for all component properties
+- **Native Bindings**: Use `[prop]`/`(event)` in Angular, standard props in React
+- **Tree-shaking**: Only bundle the components you use
 
-The Angular wrappers must be compiled by Angular's AOT compiler (ng-packagr) to:
-- Generate proper Angular metadata
-- Enable tree-shaking
-- Support AOT compilation in consuming apps
-- Provide proper `.d.ts` type definitions
+### Theming
 
-### Event Binding
+Components support light and dark themes via CSS custom properties:
 
-Stencil events are automatically converted to Angular outputs:
+```html
+<!-- Set theme on root element -->
+<html data-theme="dark">
+```
 
-```typescript
-// In Stencil component
-@Event() myEvent: EventEmitter<string>;
+Theme tokens are defined in `@components/core/styles/`:
+- `themes.css` - Light/dark theme definitions
+- `tokens.css` - Design tokens (spacing, colors, etc.)
 
-// In Angular template
-<my-component (myEvent)="handler($event)"></my-component>
+## Troubleshooting
+
+### Components not updating after changes
+
+Rebuild the core package to regenerate wrappers:
+```bash
+pnpm build:core
+```
+
+### TypeScript errors in Storybook
+
+JSX types are auto-generated when building core. If you see type errors, ensure core was built:
+```bash
+pnpm build:core
+# or manually regenerate types
+pnpm generate:jsx-types
+```
+
+### Angular/React app not seeing new components
+
+Rebuild the framework wrappers:
+```bash
+pnpm build:angular  # for Angular
+pnpm build:react    # for React
 ```
