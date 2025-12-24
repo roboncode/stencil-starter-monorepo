@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { angularOutputTarget } from '@stencil/angular-output-target';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'web-components',
@@ -30,6 +31,9 @@ export const config: Config = {
       outputType: 'standalone',
       directivesProxyFile: '../angular-components/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-components/src/lib/stencil-generated/index.ts',
+    }),
+    reactOutputTarget({
+      outDir: '../react-components/src/lib/stencil-generated/',
     }),
   ],
   testing: {
