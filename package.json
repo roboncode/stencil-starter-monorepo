@@ -1,11 +1,11 @@
 {
-  "name": "angular-stencil-starter",
+  "name": "stencil-starter-monorepo",
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
     "build": "pnpm build:core && pnpm build:angular && pnpm build:react && pnpm build:app:angular && pnpm build:app:react",
-    "build:core": "pnpm --filter @components/core build",
+    "build:core": "pnpm --filter @components/core build && pnpm generate:jsx-types",
     "build:angular": "pnpm --filter @components/angular build",
     "build:react": "pnpm --filter @components/react build",
     "build:app:angular": "pnpm --filter @app/angular build",
@@ -16,6 +16,7 @@
     "start:core": "pnpm --filter @components/core start",
     "start:storybook": "pnpm --filter @app/storybook start",
     "dev": "pnpm build:core && pnpm build:angular && pnpm build:react && pnpm start:angular & pnpm start:react",
+    "generate:jsx-types": "pnpm --filter @app/storybook generate:jsx-types",
     "dev:storybook": "pnpm build:core && pnpm start:storybook",
     "build:storybook": "pnpm build:core && pnpm --filter @app/storybook build",
     "dev:angular": "pnpm build:core && pnpm build:angular && pnpm start:angular",

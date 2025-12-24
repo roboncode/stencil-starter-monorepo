@@ -1,24 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { Components } from '@components/core';
-import { html } from 'lit';
+
+// Import component definitions
+import '@components/core';
 
 type UiTooltipProps = Components.UiTooltip;
 
 const meta: Meta<UiTooltipProps> = {
   title: 'Components/UiTooltip',
   tags: ['autodocs'],
-  render: (args) => html`
+  render: (args) => (
     <ui-tooltip
-      content=${args.content}
-      placement=${args.placement}
-      .disabled=${args.disabled}
-      .showDelay=${args.showDelay}
-      .hideDelay=${args.hideDelay}
-      .offsetDistance=${args.offsetDistance}
+      content={args.content}
+      placement={args.placement}
+      disabled={args.disabled}
+      show-delay={args.showDelay}
+      hide-delay={args.hideDelay}
+      offset-distance={args.offsetDistance}
     >
-      <button style="padding: 8px 16px; cursor: pointer;">Hover me</button>
+      <button style={{ padding: '8px 16px', cursor: 'pointer' }}>Hover me</button>
     </ui-tooltip>
-  `,
+  ),
   argTypes: {
     content: {
       control: 'text',
@@ -75,8 +77,8 @@ type Story = StoryObj<UiTooltipProps>;
 export const Default: Story = {};
 
 export const Placements: Story = {
-  render: () => html`
-    <div style="display: flex; gap: 16px; flex-wrap: wrap; padding: 60px;">
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', padding: '60px' }}>
       <ui-tooltip content="Top tooltip" placement="top">
         <button>Top</button>
       </ui-tooltip>
@@ -90,7 +92,7 @@ export const Placements: Story = {
         <button>Left</button>
       </ui-tooltip>
     </div>
-  `,
+  ),
 };
 
 export const WithDelay: Story = {

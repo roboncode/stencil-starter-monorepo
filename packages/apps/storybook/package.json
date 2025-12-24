@@ -7,11 +7,13 @@
     "dev": "storybook dev -p 6006",
     "start": "storybook dev -p 6006",
     "build": "storybook build",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "generate:jsx-types": "node scripts/generate-jsx-types.js"
   },
   "dependencies": {
     "@components/core": "workspace:*",
-    "@fortawesome/fontawesome-free": "^7.1.0"
+    "@fortawesome/fontawesome-free": "^7.1.0",
+    "jsx-dom": "^8.1.6"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.6.14",

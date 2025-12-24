@@ -1,20 +1,22 @@
+import '@components/core';
+
 import type { Meta, StoryObj } from '@storybook/web-components';
+
 import type { Components } from '@components/core';
-import { html } from 'lit';
 
 type UiInputGroupProps = Components.UiInputGroup;
 
 const meta: Meta<UiInputGroupProps> = {
   title: 'Components/UiInputGroup',
   tags: ['autodocs'],
-  render: (args) => html`
-    <ui-input-group size=${args.size} .disabled=${args.disabled} .error=${args.error}>
+  render: (args) => (
+    <ui-input-group size={args.size} disabled={args.disabled} error={args.error}>
       <ui-input-group-addon>
         <i class="fa-solid fa-user"></i>
       </ui-input-group-addon>
       <ui-input-group-input placeholder="Enter text..."></ui-input-group-input>
     </ui-input-group>
-  `,
+  ),
   argTypes: {
     size: {
       control: 'select',
@@ -43,8 +45,8 @@ type Story = StoryObj<UiInputGroupProps>;
 export const Default: Story = {};
 
 export const Sizes: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <ui-input-group size="sm">
         <ui-input-group-addon>
           <i class="fa-solid fa-user"></i>
@@ -66,12 +68,12 @@ export const Sizes: Story = {
         <ui-input-group-input placeholder="Large"></ui-input-group-input>
       </ui-input-group>
     </div>
-  `,
+  ),
 };
 
 export const WithAddons: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <ui-input-group>
         <ui-input-group-addon>
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -90,18 +92,18 @@ export const WithAddons: Story = {
         </ui-input-group-addon>
         <ui-input-group-input type="email" placeholder="you@example.com"></ui-input-group-input>
         <ui-input-group-addon align="inline-end" variant="transparent">
-          <i class="fa-solid fa-circle-check" style="color: green;"></i>
+          <i class="fa-solid fa-circle-check" style={{ color: 'green' }}></i>
         </ui-input-group-addon>
       </ui-input-group>
     </div>
-  `,
+  ),
 };
 
 export const States: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <div>
-        <label style="display: block; margin-bottom: 4px; font-size: 14px;">Normal</label>
+        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Normal</label>
         <ui-input-group>
           <ui-input-group-addon>
             <i class="fa-solid fa-user"></i>
@@ -111,8 +113,8 @@ export const States: Story = {
       </div>
 
       <div>
-        <label style="display: block; margin-bottom: 4px; font-size: 14px;">Disabled</label>
-        <ui-input-group .disabled=${true}>
+        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Disabled</label>
+        <ui-input-group disabled={true}>
           <ui-input-group-addon>
             <i class="fa-solid fa-ban"></i>
           </ui-input-group-addon>
@@ -121,15 +123,15 @@ export const States: Story = {
       </div>
 
       <div>
-        <label style="display: block; margin-bottom: 4px; font-size: 14px;">Error</label>
-        <ui-input-group .error=${true}>
+        <label style={{ display: 'block', marginBottom: '4px', fontSize: '14px' }}>Error</label>
+        <ui-input-group error={true}>
           <ui-input-group-addon>
             <i class="fa-solid fa-triangle-exclamation"></i>
           </ui-input-group-addon>
           <ui-input-group-input placeholder="Invalid input"></ui-input-group-input>
         </ui-input-group>
-        <span style="color: red; font-size: 12px;">This field is required</span>
+        <span style={{ color: 'red', fontSize: '12px' }}>This field is required</span>
       </div>
     </div>
-  `,
+  ),
 };

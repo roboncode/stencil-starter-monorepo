@@ -1,27 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import type { Components } from '@components/core';
-import { html } from 'lit';
+
+import '@components/core';
 
 type UiToggleGroupProps = Components.UiToggleGroup;
 
 const meta: Meta<UiToggleGroupProps> = {
   title: 'Components/UiToggleGroup',
   tags: ['autodocs'],
-  render: (args) => html`
+  render: (args) => (
     <ui-toggle-group
-      value=${args.value}
-      size=${args.size}
-      variant=${args.variant}
-      orientation=${args.orientation}
-      .multiple=${args.multiple}
-      .disabled=${args.disabled}
+      value={args.value as string}
+      size={args.size}
+      variant={args.variant}
+      orientation={args.orientation}
+      multiple={args.multiple}
+      disabled={args.disabled}
     >
       <ui-toggle value="left"><i class="fa-solid fa-align-left"></i></ui-toggle>
       <ui-toggle value="center"><i class="fa-solid fa-align-center"></i></ui-toggle>
       <ui-toggle value="right"><i class="fa-solid fa-align-right"></i></ui-toggle>
       <ui-toggle value="justify"><i class="fa-solid fa-align-justify"></i></ui-toggle>
     </ui-toggle-group>
-  `,
+  ),
   argTypes: {
     value: {
       control: 'text',
@@ -70,14 +71,14 @@ export const MultipleSelection: Story = {
   args: {
     multiple: true,
   },
-  render: (args) => html`
-    <ui-toggle-group .multiple=${args.multiple}>
+  render: (args) => (
+    <ui-toggle-group multiple={args.multiple}>
       <ui-toggle value="bold"><i class="fa-solid fa-bold"></i></ui-toggle>
       <ui-toggle value="italic"><i class="fa-solid fa-italic"></i></ui-toggle>
       <ui-toggle value="underline"><i class="fa-solid fa-underline"></i></ui-toggle>
       <ui-toggle value="strikethrough"><i class="fa-solid fa-strikethrough"></i></ui-toggle>
     </ui-toggle-group>
-  `,
+  ),
 };
 
 export const OutlineVariant: Story = {
@@ -85,20 +86,20 @@ export const OutlineVariant: Story = {
     variant: 'outline',
     value: 'grid',
   },
-  render: (args) => html`
-    <ui-toggle-group value=${args.value} variant=${args.variant}>
+  render: (args) => (
+    <ui-toggle-group value={args.value as string} variant={args.variant}>
       <ui-toggle value="list"><i class="fa-solid fa-list"></i> List</ui-toggle>
       <ui-toggle value="grid"><i class="fa-solid fa-grip"></i> Grid</ui-toggle>
       <ui-toggle value="columns"><i class="fa-solid fa-columns"></i> Columns</ui-toggle>
     </ui-toggle-group>
-  `,
+  ),
 };
 
 export const Sizes: Story = {
-  render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
       <div>
-        <label style="display: block; margin-bottom: 8px; font-size: 14px;">Small</label>
+        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px' }}>Small</label>
         <ui-toggle-group size="sm" value="a">
           <ui-toggle value="a">Option A</ui-toggle>
           <ui-toggle value="b">Option B</ui-toggle>
@@ -106,7 +107,7 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <label style="display: block; margin-bottom: 8px; font-size: 14px;">Base</label>
+        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px' }}>Base</label>
         <ui-toggle-group size="base" value="a">
           <ui-toggle value="a">Option A</ui-toggle>
           <ui-toggle value="b">Option B</ui-toggle>
@@ -114,14 +115,14 @@ export const Sizes: Story = {
       </div>
 
       <div>
-        <label style="display: block; margin-bottom: 8px; font-size: 14px;">Large</label>
+        <label style={{ display: 'block', marginBottom: '8px', fontSize: '14px' }}>Large</label>
         <ui-toggle-group size="lg" value="a">
           <ui-toggle value="a">Option A</ui-toggle>
           <ui-toggle value="b">Option B</ui-toggle>
         </ui-toggle-group>
       </div>
     </div>
-  `,
+  ),
 };
 
 export const Vertical: Story = {
@@ -129,13 +130,13 @@ export const Vertical: Story = {
     orientation: 'vertical',
     value: 'option1',
   },
-  render: (args) => html`
-    <ui-toggle-group orientation=${args.orientation} value=${args.value}>
+  render: (args) => (
+    <ui-toggle-group orientation={args.orientation} value={args.value as string}>
       <ui-toggle value="option1">Option 1</ui-toggle>
       <ui-toggle value="option2">Option 2</ui-toggle>
       <ui-toggle value="option3">Option 3</ui-toggle>
     </ui-toggle-group>
-  `,
+  ),
 };
 
 export const Disabled: Story = {
