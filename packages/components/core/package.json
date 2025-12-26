@@ -26,26 +26,6 @@
       "import": "./dist/components/*.js",
       "types": "./dist/components/*.d.ts"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
-    "./ui-tooltip": {
-      "import": "./dist/components/ui-tooltip.js",
-      "types": "./dist/components/ui-tooltip.d.ts"
-    },
-    "./ui-input-group": {
-      "import": "./dist/components/ui-input-group.js",
-      "types": "./dist/components/ui-input-group.d.ts"
-    },
-    "./ui-input-group-input": {
-      "import": "./dist/components/ui-input-group-input.js",
-      "types": "./dist/components/ui-input-group-input.d.ts"
-    },
-    "./ui-input-group-addon": {
-      "import": "./dist/components/ui-input-group-addon.js",
-      "types": "./dist/components/ui-input-group-addon.d.ts"
-    },
     "./loader": {
       "types": "./loader/index.d.ts",
       "import": "./loader/index.js",

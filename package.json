@@ -12,27 +12,33 @@
     "packages/apps/storybook"
   ],
   "scripts": {
-    "build": "npm run build:core && npm run build:angular && npm run build:react && npm run build:app:angular && npm run build:app:react",
+    "build": "npm run build:core && npm run build:wrappers && npm run build:apps",
     "build:core": "npm -w @components/core run build && npm run generate:jsx-types",
+    "build:wrappers": "npm -w @components/angular run build && npm -w @components/react run build",
     "build:angular": "npm -w @components/angular run build",
     "build:react": "npm -w @components/react run build",
+    "build:apps": "npm -w @app/angular run build && npm -w @app/react run build",
     "build:app:angular": "npm -w @app/angular run build",
     "build:app:react": "npm -w @app/react run build",
-    "start": "npm -w @app/angular run start",
+    "start": "concurrently -n angular,react -c blue,green \"npm run start:angular\" \"npm run start:react\"",
     "start:angular": "npm -w @app/angular run start",
     "start:react": "npm -w @app/react run start",
     "start:core": "npm -w @components/core run start",
     "start:storybook": "npm -w @app/storybook run start",
-    "dev": "npm run build:core && npm run build:angular && npm run build:react && npm run start:angular & npm run start:react",
-    "generate:jsx-types": "npm -w @app/storybook run generate:jsx-types",
-    "dev:storybook": "npm run build:core && npm run start:storybook",
-    "build:storybook": "npm run build:core && npm -w @app/storybook run build",
+    "dev": "npm run build:core && npm run build:wrappers && npm run start",
+    "dev:all": "npm run build:core && npm run build:wrappers && concurrently -n angular,react,storybook -c blue,green,magenta \"npm run start:angular\" \"npm run start:react\" \"npm run start:storybook\"",
     "dev:angular": "npm run build:core && npm run build:angular && npm run start:angular",
     "dev:react": "npm run build:core && npm run build:react && npm run start:react",
+    "dev:storybook": "npm run build:core && npm run start:storybook",
+    "generate:jsx-types": "npm -w @app/storybook run generate:jsx-types",
+    "build:storybook": "npm run build:core && npm -w @app/storybook run build",
     "test": "npm --workspaces run test --if-present",
     "clean": "rm -rf node_modules packages/*/node_modules packages/**/*/node_modules packages/components/angular/dist packages/components/react/dist package-lock.json"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
