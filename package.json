@@ -10,12 +10,13 @@
     "build:react": "pnpm --filter @components/react build",
     "build:app:angular": "pnpm --filter @app/angular build",
     "build:app:react": "pnpm --filter @app/react build",
-    "start": "pnpm --filter @app/angular start",
+    "start": "concurrently -n angular,react -c blue,green \"pnpm start:angular\" \"pnpm start:react\"",
     "start:angular": "pnpm --filter @app/angular start",
     "start:react": "pnpm --filter @app/react start",
     "start:core": "pnpm --filter @components/core start",
     "start:storybook": "pnpm --filter @app/storybook start",
-    "dev": "pnpm build:core && pnpm build:angular && pnpm build:react && pnpm start:angular & pnpm start:react",
+    "dev": "pnpm build:core && pnpm build:angular && pnpm build:react && concurrently -n angular,react -c blue,green \"pnpm start:angular\" \"pnpm start:react\"",
+    "dev:all": "pnpm build:core && pnpm build:angular && pnpm build:react && concurrently -n angular,react,storybook -c blue,green,magenta \"pnpm start:angular\" \"pnpm start:react\" \"pnpm start:storybook\"",
     "generate:jsx-types": "pnpm --filter @app/storybook generate:jsx-types",
     "dev:storybook": "pnpm build:core && pnpm start:storybook",
     "build:storybook": "pnpm build:core && pnpm --filter @app/storybook build",
@@ -27,5 +28,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.24.0"
+  "packageManager": "pnpm@10.24.0",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
