@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Core-Next Atomic Components Demo</title>
+
+    <script type="module" src="/build/core-next.esm.js"></script>
+    <script nomodule src="/build/core-next.js"></script>
+
+    <!-- Global styles (tokens + reset) -->
+    <link rel="stylesheet" href="/build/core-next.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/build/styles/themes.css" />
+
+    <!-- Page Styles -->
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background-color: var(--theme-bg-secondary);
+        color: var(--theme-text-primary);
+        padding: 2rem;
+        margin: 0;
+        line-height: 1.5;
+        transition: background-color 200ms ease, color 200ms ease;
+      }
+
+      .container { max-width: 700px; margin: 0 auto; }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      h1 { font-size: 1.5rem; margin: 0; color: var(--theme-text-primary); }
+
+      h2 {
+        font-size: 1.125rem;
+        margin: 2rem 0 1rem;
+        color: var(--theme-text-secondary);
+      }
+      h2:first-child { margin-top: 0; }
+
+      h3 {
+        font-size: 0.875rem;
+        margin: 1rem 0 0.5rem;
+        color: var(--theme-text-tertiary);
+        font-weight: 500;
+      }
+
+      .demo-section {
+        background: var(--theme-bg-primary);
+        border: 1px solid var(--theme-border-default);
+        border-radius: var(--theme-radius-lg);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--theme-shadow-sm);
+        transition: background-color 200ms ease, border-color 200ms ease;
+      }
+
+      .demo-row { margin-bottom: 1rem; }
+      .demo-row:last-child { margin-bottom: 0; }
+
+      .label {
+        display: block;
+        font-size: 0.875rem;
+        color: var(--theme-text-tertiary);
+        margin-bottom: 0.5rem;
+      }
+
+      .inline-row {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .theme-indicator {
+        display: inline-flex;
+        gap: 0.5rem;
+        padding: 0.25rem;
+        background: var(--theme-bg-tertiary);
+        border-radius: var(--theme-radius-full);
+      }
+
+      .theme-pill {
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--theme-radius-full);
+        font-size: 0.75rem;
+        border: none;
+        cursor: pointer;
+        transition: all 150ms ease;
+        background: transparent;
+        color: var(--theme-text-tertiary);
+      }
+
+      .theme-pill.active {
+        background: var(--theme-bg-primary);
+        color: var(--theme-text-primary);
+        box-shadow: var(--theme-shadow-sm);
+      }
+
+      .theme-pill:hover:not(.active) {
+        color: var(--theme-text-primary);
+      }
+
+      .code {
+        font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, monospace;
+        font-size: 0.75rem;
+        background: var(--theme-bg-tertiary);
+        padding: 0.125rem 0.375rem;
+        border-radius: var(--theme-radius-sm);
+        color: var(--theme-text-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- Header with Theme Toggle -->
+      <div class="header">
+        <h1>Atomic Components Demo</h1>
+        <div class="theme-indicator">
+          <button class="theme-pill active" data-theme-value="light" onclick="setTheme('light')">
+            <i class="fa-solid fa-sun"></i> Light
+          </button>
+          <button class="theme-pill" data-theme-value="dark" onclick="setTheme('dark')">
+            <i class="fa-solid fa-moon"></i> Dark
+          </button>
+        </div>
+      </div>
+
+      <!-- ================================
+           PRIMITIVES SHOWCASE
+           ================================ -->
+      <div class="demo-section">
+        <h2>Primitives</h2>
+
+        <div class="demo-row">
+          <span class="label">base-text</span>
+          <base-text>This is a base-text element. It inherits font and color.</base-text>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">base-icon</span>
+          <div class="inline-row">
+            <base-icon name="fa-solid fa-user"></base-icon>
+            <base-icon name="fa-solid fa-star"></base-icon>
+            <base-icon name="fa-solid fa-heart"></base-icon>
+            <base-icon name="fa-solid fa-check-circle"></base-icon>
+            <base-icon><i class="fa-brands fa-github"></i></base-icon>
+          </div>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">base-label</span>
+          <div class="inline-row">
+            <base-label>Username</base-label>
+            <base-label>Email address</base-label>
+            <base-label>Password</base-label>
+          </div>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">base-button</span>
+          <div class="inline-row">
+            <base-button>Click me</base-button>
+            <base-button disabled>Disabled</base-button>
+          </div>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">base-input (standalone, no chrome)</span>
+          <base-input placeholder="Type something..."></base-input>
+        </div>
+      </div>
+
+      <!-- ================================
+           BASE INPUT GROUP WITH ADDONS
+           ================================ -->
+      <div class="demo-section">
+        <h2>Input Group + Addons</h2>
+
+        <div class="demo-row">
+          <span class="label">Search with icon</span>
+          <base-input-group>
+            <base-group-addon>
+              <base-icon name="fa-solid fa-magnifying-glass"></base-icon>
+            </base-group-addon>
+            <base-input placeholder="Search..."></base-input>
+            <base-group-addon align="end" variant="transparent">
+              <base-text>12 results</base-text>
+            </base-group-addon>
+          </base-input-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">URL with muted prefix</span>
+          <base-input-group>
+            <base-group-addon variant="muted">
+              <base-text>https://</base-text>
+            </base-group-addon>
+            <base-input placeholder="example.com"></base-input>
+          </base-input-group>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Email with clickable addon</span>
+          <base-input-group>
+            <base-group-addon>
+              <base-icon name="fa-solid fa-envelope"></base-icon>
+            </base-group-addon>
+            <base-input type="email" placeholder="you@example.com"></base-input>
+            <base-group-addon align="end" clickable>
+              <base-icon name="fa-solid fa-paper-plane"></base-icon>
+            </base-group-addon>
+          </base-input-group>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="demo-row">
+          <span class="label">Small</span>
+          <base-input-group size="sm">
+            <base-group-addon><base-icon name="fa-solid fa-user"></base-icon></base-group-addon>
+            <base-input placeholder="Small input"></base-input>
+          </base-input-group>
+        </div>
+        <div class="demo-row">
+          <span class="label">Base (default)</span>
+          <base-input-group size="base">
+            <base-group-addon><base-icon name="fa-solid fa-user"></base-icon></base-group-addon>
+            <base-input placeholder="Base input"></base-input>
+          </base-input-group>
+        </div>
+        <div class="demo-row">
+          <span class="label">Large</span>
+          <base-input-group size="lg">
+            <base-group-addon><base-icon name="fa-solid fa-user"></base-icon></base-group-addon>
+            <base-input placeholder="Large input"></base-input>
+          </base-input-group>
+        </div>
+
+        <h3>States</h3>
+        <div class="demo-row">
+          <span class="label">Disabled</span>
+          <base-input-group disabled>
+            <base-group-addon><base-icon name="fa-solid fa-ban"></base-icon></base-group-addon>
+            <base-input placeholder="Disabled" disabled></base-input>
+          </base-input-group>
+        </div>
+        <div class="demo-row">
+          <span class="label">Error</span>
+          <base-input-group error>
+            <base-group-addon><base-icon name="fa-solid fa-triangle-exclamation"></base-icon></base-group-addon>
+            <base-input placeholder="Invalid input"></base-input>
+          </base-input-group>
+        </div>
+      </div>
+
+      <!-- ================================
+           UEFDS BUTTON VARIANTS
+           ================================ -->
+      <div class="demo-section">
+        <h2>uefds-button</h2>
+
+        <h3>Solid (default variant)</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Theme" color="theme"></uefds-button>
+            <uefds-button text="Success" color="success"></uefds-button>
+            <uefds-button text="Warning" color="warning"></uefds-button>
+            <uefds-button text="Danger" color="danger"></uefds-button>
+            <uefds-button text="Info" color="info"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Outline</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Theme" variant="outline" color="theme"></uefds-button>
+            <uefds-button text="Success" variant="outline" color="success"></uefds-button>
+            <uefds-button text="Warning" variant="outline" color="warning"></uefds-button>
+            <uefds-button text="Danger" variant="outline" color="danger"></uefds-button>
+            <uefds-button text="Info" variant="outline" color="info"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Subtle</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Theme" variant="subtle" color="theme"></uefds-button>
+            <uefds-button text="Success" variant="subtle" color="success"></uefds-button>
+            <uefds-button text="Warning" variant="subtle" color="warning"></uefds-button>
+            <uefds-button text="Danger" variant="subtle" color="danger"></uefds-button>
+            <uefds-button text="Info" variant="subtle" color="info"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Link</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Theme link" variant="link" color="theme"></uefds-button>
+            <uefds-button text="Danger link" variant="link" color="danger"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Sizes</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Small" size="sm"></uefds-button>
+            <uefds-button text="Medium" size="md"></uefds-button>
+            <uefds-button text="Large" size="lg"></uefds-button>
+          </div>
+        </div>
+
+        <h3>With Icons</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Save" icon-start="fa-solid fa-floppy-disk"></uefds-button>
+            <uefds-button text="Next" icon-end="fa-solid fa-arrow-right" variant="outline"></uefds-button>
+            <uefds-button text="Delete" icon-start="fa-solid fa-trash" color="danger" variant="outline"></uefds-button>
+            <uefds-button text="Download" icon-start="fa-solid fa-download" icon-end="fa-solid fa-arrow-down" variant="subtle"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Busy State</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Saving..." busy></uefds-button>
+            <uefds-button text="Loading..." busy variant="outline"></uefds-button>
+          </div>
+        </div>
+
+        <h3>Disabled</h3>
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button text="Disabled" disabled></uefds-button>
+            <uefds-button text="Disabled" disabled variant="outline"></uefds-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================
+           UEFDS FIELD WITH INPUT GROUP
+           ================================ -->
+      <div class="demo-section">
+        <h2>uefds-field + uefds-input-group</h2>
+
+        <div class="demo-row" id="field-demo">
+          <uefds-field label="Email Address" required>
+            <uefds-input-group>
+              <base-group-addon slot="addon-start">
+                <base-icon name="fa-solid fa-envelope"></base-icon>
+              </base-group-addon>
+              <uefds-textbox placeholder="you@example.com"></uefds-textbox>
+            </uefds-input-group>
+          </uefds-field>
+        </div>
+
+        <div class="demo-row" id="field-error-demo">
+          <uefds-field label="Password" required>
+            <uefds-input-group error>
+              <base-group-addon slot="addon-start">
+                <base-icon name="fa-solid fa-lock"></base-icon>
+              </base-group-addon>
+              <uefds-textbox type="password" placeholder="Enter password"></uefds-textbox>
+              <base-group-addon slot="addon-end" clickable id="toggle-pw">
+                <base-icon name="fa-solid fa-eye"></base-icon>
+              </base-group-addon>
+            </uefds-input-group>
+          </uefds-field>
+        </div>
+
+        <div class="demo-row">
+          <uefds-field label="Website URL">
+            <uefds-input-group>
+              <base-group-addon slot="addon-start" variant="muted">
+                <base-text>https://</base-text>
+              </base-group-addon>
+              <uefds-textbox placeholder="example.com"></uefds-textbox>
+            </uefds-input-group>
+          </uefds-field>
+        </div>
+      </div>
+
+      <!-- ================================
+           UEFDS FIELD MESSAGE VARIANTS
+           ================================ -->
+      <div class="demo-section">
+        <h2>Field Messages</h2>
+
+        <div class="demo-row">
+          <span class="label">Danger</span>
+          <base-field-message variant="danger">This field is required.</base-field-message>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Warning</span>
+          <base-field-message variant="warning">Password strength is weak.</base-field-message>
+        </div>
+
+        <div class="demo-row">
+          <span class="label">Info</span>
+          <base-field-message variant="info">We'll never share your email.</base-field-message>
+        </div>
+      </div>
+
+      <!-- ================================
+           UEFDS ICON SIZES
+           ================================ -->
+      <div class="demo-section">
+        <h2>uefds-icon</h2>
+
+        <div class="demo-row">
+          <div class="inline-row">
+            <div>
+              <span class="label">sm</span>
+              <uefds-icon name="fa-solid fa-star" size="sm"></uefds-icon>
+            </div>
+            <div>
+              <span class="label">md</span>
+              <uefds-icon name="fa-solid fa-star" size="md"></uefds-icon>
+            </div>
+            <div>
+              <span class="label">lg</span>
+              <uefds-icon name="fa-solid fa-star" size="lg"></uefds-icon>
+            </div>
+            <div>
+              <span class="label">xl</span>
+              <uefds-icon name="fa-solid fa-star" size="xl"></uefds-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================
+           FORM & FIELDSET
+           ================================ -->
+      <div class="demo-section">
+        <h2>uefds-form &amp; uefds-fieldset</h2>
+
+        <uefds-form>
+          <uefds-fieldset>
+            <legend slot="legend">Account Details</legend>
+
+            <uefds-field label="Full Name" required>
+              <base-input-group>
+                <base-group-addon><base-icon name="fa-solid fa-user"></base-icon></base-group-addon>
+                <base-input placeholder="John Doe"></base-input>
+              </base-input-group>
+            </uefds-field>
+
+            <uefds-field label="Email" required>
+              <base-input-group>
+                <base-group-addon><base-icon name="fa-solid fa-envelope"></base-icon></base-group-addon>
+                <base-input type="email" placeholder="john@example.com"></base-input>
+              </base-input-group>
+            </uefds-field>
+          </uefds-fieldset>
+
+          <div class="inline-row">
+            <uefds-button text="Submit" type="submit" icon-start="fa-solid fa-check"></uefds-button>
+            <uefds-button text="Cancel" variant="outline" color="danger"></uefds-button>
+          </div>
+        </uefds-form>
+      </div>
+
+      <!-- ================================
+           CLASS PASSTHROUGH DEMO
+           ================================ -->
+      <div class="demo-section">
+        <h2>Class Passthrough</h2>
+        <p style="font-size: 0.875rem; color: var(--theme-text-tertiary); margin: 0 0 1rem;">
+          External <span class="code">class</span> attribute merges with internal classes. Inspect DOM to verify.
+        </p>
+
+        <div class="demo-row">
+          <div class="inline-row">
+            <uefds-button class="header-button" text="Custom Class" variant="outline"></uefds-button>
+            <base-input-group class="custom-group">
+              <base-group-addon><base-icon name="fa-solid fa-search"></base-icon></base-group-addon>
+              <base-input class="custom-input" placeholder="Custom class on input"></base-input>
+            </base-input-group>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+      // Theme toggle
+      function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.querySelectorAll('.theme-pill').forEach(pill => {
+          pill.classList.toggle('active', pill.dataset.themeValue === theme);
+        });
+        localStorage.setItem('theme', theme);
+      }
+
+      function initTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+          setTheme(stored);
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          setTheme('dark');
+        }
+      }
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          setTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      // Password visibility toggle
+      document.addEventListener('DOMContentLoaded', () => {
+        initTheme();
+
+        const toggleBtn = document.getElementById('toggle-pw');
+        let isVisible = false;
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', () => {
+            isVisible = !isVisible;
+            const textbox = document.querySelector('#field-error-demo uefds-textbox');
+            if (textbox) {
+              textbox.setAttribute('type', isVisible ? 'text' : 'password');
+            }
+            const icon = toggleBtn.querySelector('base-icon');
+            if (icon) {
+              icon.setAttribute('name', isVisible ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye');
+            }
+          });
+        }
+
+        // Demo: set messages on field via JS
+        const fieldErrorDemo = document.querySelector('#field-error-demo uefds-field');
+        if (fieldErrorDemo) {
+          fieldErrorDemo.messages = [
+            { text: 'Password must be at least 8 characters.', variant: 'danger' },
+            { text: 'Include uppercase and numbers for better strength.', variant: 'warning' },
+          ];
+          fieldErrorDemo.instructions = 'Choose a strong password for your account.';
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  margin-bottom: var(--spacing-1);
+}
+
+.field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--theme-text-primary, var(--color-foreground));
+}
+
+.required-indicator {
+  color: var(--theme-error, #ef4444);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}

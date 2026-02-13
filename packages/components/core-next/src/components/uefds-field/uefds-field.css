@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field__instructions {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--theme-text-tertiary, var(--color-muted));
+  margin-bottom: var(--spacing-2);
+}
+
+.field__control {
+  display: flex;
+  flex-direction: column;
+}
+
+.field__messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.field__support {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--theme-text-tertiary, var(--color-muted));
+  margin-top: var(--spacing-1);
+}

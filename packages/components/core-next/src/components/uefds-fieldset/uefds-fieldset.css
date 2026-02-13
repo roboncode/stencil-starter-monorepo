@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+.fieldset {
+  border: 1px solid var(--theme-border-default, var(--color-border));
+  border-radius: var(--theme-radius-lg, var(--radius-lg));
+  padding: var(--spacing-4);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.fieldset > legend {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  padding: 0 var(--spacing-1);
+  color: var(--theme-text-primary, var(--color-foreground));
+}

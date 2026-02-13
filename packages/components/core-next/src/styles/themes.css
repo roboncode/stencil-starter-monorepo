@@ -1,0 +1,208 @@
+/* Theme System - Light & Dark Mode */
+
+/*
+ * Usage:
+ * 1. Include this file in your app
+ * 2. Add class="theme-light" or class="theme-dark" to <html> or <body>
+ * 3. Or use data-theme="light" or data-theme="dark" attribute
+ */
+
+/* ========================================
+   Light Theme (Default)
+   ======================================== */
+:root,
+[data-theme="light"],
+.theme-light {
+  /* Background colors */
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #fafafa;
+  --theme-bg-tertiary: #f5f5f5;
+  --theme-bg-elevated: #ffffff;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Foreground/Text colors */
+  --theme-text-primary: #171717;
+  --theme-text-secondary: #525252;
+  --theme-text-tertiary: #737373;
+  --theme-text-muted: #a3a3a3;
+  --theme-text-inverse: #ffffff;
+
+  /* Border colors */
+  --theme-border-default: #e5e5e5;
+  --theme-border-strong: #d4d4d4;
+  --theme-border-subtle: #f5f5f5;
+  --theme-border-focus: #3b82f6;
+
+  /* Interactive colors */
+  --theme-primary: #3b82f6;
+  --theme-primary-hover: #2563eb;
+  --theme-primary-active: #1d4ed8;
+  --theme-primary-subtle: #eff6ff;
+
+  /* Status colors */
+  --theme-success: #22c55e;
+  --theme-success-subtle: #f0fdf4;
+  --theme-warning: #f59e0b;
+  --theme-warning-subtle: #fffbeb;
+  --theme-error: #ef4444;
+  --theme-error-subtle: #fef2f2;
+  --theme-info: #3b82f6;
+  --theme-info-subtle: #eff6ff;
+
+  /* Component-specific tokens */
+  --theme-input-bg: #ffffff;
+  --theme-input-border: #d4d4d4;
+  --theme-input-border-hover: #a3a3a3;
+  --theme-input-border-focus: #3b82f6;
+  --theme-input-placeholder: #a3a3a3;
+  --theme-input-disabled-bg: #f5f5f5;
+
+  --theme-tooltip-bg: #171717;
+  --theme-tooltip-text: #ffffff;
+
+  --theme-addon-bg: #f5f5f5;
+  --theme-addon-border: #e5e5e5;
+  --theme-addon-text: #525252;
+
+  /* Shadows */
+  --theme-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --theme-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --theme-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --theme-shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  --theme-shadow-error-focus: 0 0 0 3px rgba(239, 68, 68, 0.25);
+
+  /* Misc */
+  --theme-radius-sm: 0.25rem;
+  --theme-radius-md: 0.375rem;
+  --theme-radius-lg: 0.5rem;
+  --theme-radius-full: 9999px;
+}
+
+/* ========================================
+   Dark Theme
+   ======================================== */
+[data-theme="dark"],
+.theme-dark {
+  /* Background colors */
+  --theme-bg-primary: #0a0a0a;
+  --theme-bg-secondary: #171717;
+  --theme-bg-tertiary: #262626;
+  --theme-bg-elevated: #1f1f1f;
+  --theme-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  /* Foreground/Text colors */
+  --theme-text-primary: #fafafa;
+  --theme-text-secondary: #d4d4d4;
+  --theme-text-tertiary: #a3a3a3;
+  --theme-text-muted: #737373;
+  --theme-text-inverse: #171717;
+
+  /* Border colors */
+  --theme-border-default: #404040;
+  --theme-border-strong: #525252;
+  --theme-border-subtle: #262626;
+  --theme-border-focus: #60a5fa;
+
+  /* Interactive colors */
+  --theme-primary: #60a5fa;
+  --theme-primary-hover: #3b82f6;
+  --theme-primary-active: #2563eb;
+  --theme-primary-subtle: #1e3a5f;
+
+  /* Status colors */
+  --theme-success: #4ade80;
+  --theme-success-subtle: #14532d;
+  --theme-warning: #fbbf24;
+  --theme-warning-subtle: #78350f;
+  --theme-error: #f87171;
+  --theme-error-subtle: #7f1d1d;
+  --theme-info: #60a5fa;
+  --theme-info-subtle: #1e3a5f;
+
+  /* Component-specific tokens */
+  --theme-input-bg: #171717;
+  --theme-input-border: #404040;
+  --theme-input-border-hover: #525252;
+  --theme-input-border-focus: #60a5fa;
+  --theme-input-placeholder: #737373;
+  --theme-input-disabled-bg: #262626;
+
+  --theme-tooltip-bg: #f5f5f5;
+  --theme-tooltip-text: #171717;
+
+  --theme-addon-bg: #262626;
+  --theme-addon-border: #404040;
+  --theme-addon-text: #d4d4d4;
+
+  /* Shadows - darker/more subtle in dark mode */
+  --theme-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --theme-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --theme-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --theme-shadow-focus: 0 0 0 3px rgba(96, 165, 250, 0.3);
+  --theme-shadow-error-focus: 0 0 0 3px rgba(248, 113, 113, 0.3);
+}
+
+/* ========================================
+   System preference detection
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not(.theme-light) {
+    /* Background colors */
+    --theme-bg-primary: #0a0a0a;
+    --theme-bg-secondary: #171717;
+    --theme-bg-tertiary: #262626;
+    --theme-bg-elevated: #1f1f1f;
+    --theme-bg-overlay: rgba(0, 0, 0, 0.7);
+
+    /* Foreground/Text colors */
+    --theme-text-primary: #fafafa;
+    --theme-text-secondary: #d4d4d4;
+    --theme-text-tertiary: #a3a3a3;
+    --theme-text-muted: #737373;
+    --theme-text-inverse: #171717;
+
+    /* Border colors */
+    --theme-border-default: #404040;
+    --theme-border-strong: #525252;
+    --theme-border-subtle: #262626;
+    --theme-border-focus: #60a5fa;
+
+    /* Interactive colors */
+    --theme-primary: #60a5fa;
+    --theme-primary-hover: #3b82f6;
+    --theme-primary-active: #2563eb;
+    --theme-primary-subtle: #1e3a5f;
+
+    /* Status colors */
+    --theme-success: #4ade80;
+    --theme-success-subtle: #14532d;
+    --theme-warning: #fbbf24;
+    --theme-warning-subtle: #78350f;
+    --theme-error: #f87171;
+    --theme-error-subtle: #7f1d1d;
+    --theme-info: #60a5fa;
+    --theme-info-subtle: #1e3a5f;
+
+    /* Component-specific tokens */
+    --theme-input-bg: #171717;
+    --theme-input-border: #404040;
+    --theme-input-border-hover: #525252;
+    --theme-input-border-focus: #60a5fa;
+    --theme-input-placeholder: #737373;
+    --theme-input-disabled-bg: #262626;
+
+    --theme-tooltip-bg: #f5f5f5;
+    --theme-tooltip-text: #171717;
+
+    --theme-addon-bg: #262626;
+    --theme-addon-border: #404040;
+    --theme-addon-text: #d4d4d4;
+
+    /* Shadows */
+    --theme-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --theme-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --theme-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --theme-shadow-focus: 0 0 0 3px rgba(96, 165, 250, 0.3);
+    --theme-shadow-error-focus: 0 0 0 3px rgba(248, 113, 113, 0.3);
+  }
+}

@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  margin-top: var(--spacing-1);
+}
+
+:host(.field-message--danger) {
+  color: var(--theme-error, #ef4444);
+}
+
+:host(.field-message--warning) {
+  color: var(--theme-warning, #f59e0b);
+}
+
+:host(.field-message--info) {
+  color: var(--theme-info, #3b82f6);
+}

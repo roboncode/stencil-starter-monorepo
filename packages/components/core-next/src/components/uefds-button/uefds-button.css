@@ -1,0 +1,187 @@
+:host {
+  display: inline-flex;
+  --btn-radius: var(--button-radius, var(--radius-md));
+  --btn-font-weight: var(--font-weight-medium);
+  --btn-white-space: nowrap;
+}
+
+/* ========================
+   Sizes
+   ======================== */
+:host(.btn--sm) {
+  --btn-height: var(--button-height-sm);
+  --btn-padding: 0 var(--button-padding-x-sm);
+  --btn-font-size: var(--font-size-xs);
+  --btn-gap: var(--spacing-1);
+}
+
+:host(.btn--md) {
+  --btn-height: var(--button-height-base);
+  --btn-padding: 0 var(--button-padding-x-base);
+  --btn-font-size: var(--font-size-sm);
+  --btn-gap: var(--spacing-2);
+}
+
+:host(.btn--lg) {
+  --btn-height: var(--button-height-lg);
+  --btn-padding: 0 var(--spacing-6);
+  --btn-font-size: var(--font-size-base);
+  --btn-gap: var(--spacing-2);
+}
+
+/* Direction */
+:host(.btn--vertical) {
+  --btn-direction: column;
+  --btn-gap: var(--spacing-1);
+}
+
+/* ========================
+   Solid variant
+   ======================== */
+:host(.btn--solid.btn--theme) {
+  --btn-bg: var(--theme-primary);
+  --btn-color: white;
+  --btn-border: 1px solid var(--theme-primary);
+  --btn-bg-hover: var(--theme-primary-hover);
+  --btn-border-color-hover: var(--theme-primary-hover);
+}
+
+:host(.btn--solid.btn--success) {
+  --btn-bg: var(--theme-success);
+  --btn-color: white;
+  --btn-border: 1px solid var(--theme-success);
+  --btn-filter-hover: brightness(0.9);
+}
+
+:host(.btn--solid.btn--warning) {
+  --btn-bg: var(--theme-warning);
+  --btn-color: white;
+  --btn-border: 1px solid var(--theme-warning);
+  --btn-filter-hover: brightness(0.9);
+}
+
+:host(.btn--solid.btn--danger) {
+  --btn-bg: var(--theme-error);
+  --btn-color: white;
+  --btn-border: 1px solid var(--theme-error);
+  --btn-filter-hover: brightness(0.9);
+}
+
+:host(.btn--solid.btn--info) {
+  --btn-bg: var(--theme-info);
+  --btn-color: white;
+  --btn-border: 1px solid var(--theme-info);
+  --btn-filter-hover: brightness(0.9);
+}
+
+/* ========================
+   Outline variant
+   ======================== */
+:host(.btn--outline.btn--theme) {
+  --btn-bg: transparent;
+  --btn-color: var(--theme-primary);
+  --btn-border: 1px solid var(--theme-primary);
+  --btn-bg-hover: var(--theme-primary-subtle);
+}
+
+:host(.btn--outline.btn--success) {
+  --btn-bg: transparent;
+  --btn-color: var(--theme-success);
+  --btn-border: 1px solid var(--theme-success);
+  --btn-bg-hover: var(--theme-success-subtle);
+}
+
+:host(.btn--outline.btn--warning) {
+  --btn-bg: transparent;
+  --btn-color: var(--theme-warning);
+  --btn-border: 1px solid var(--theme-warning);
+  --btn-bg-hover: var(--theme-warning-subtle);
+}
+
+:host(.btn--outline.btn--danger) {
+  --btn-bg: transparent;
+  --btn-color: var(--theme-error);
+  --btn-border: 1px solid var(--theme-error);
+  --btn-bg-hover: var(--theme-error-subtle);
+}
+
+:host(.btn--outline.btn--info) {
+  --btn-bg: transparent;
+  --btn-color: var(--theme-info);
+  --btn-border: 1px solid var(--theme-info);
+  --btn-bg-hover: var(--theme-info-subtle);
+}
+
+/* ========================
+   Subtle variant
+   ======================== */
+:host(.btn--subtle.btn--theme) {
+  --btn-bg: var(--theme-primary-subtle);
+  --btn-color: var(--theme-primary);
+  --btn-border: 1px solid transparent;
+  --btn-filter-hover: brightness(0.95);
+}
+
+:host(.btn--subtle.btn--success) {
+  --btn-bg: var(--theme-success-subtle);
+  --btn-color: var(--theme-success);
+  --btn-border: 1px solid transparent;
+  --btn-filter-hover: brightness(0.95);
+}
+
+:host(.btn--subtle.btn--warning) {
+  --btn-bg: var(--theme-warning-subtle);
+  --btn-color: var(--theme-warning);
+  --btn-border: 1px solid transparent;
+  --btn-filter-hover: brightness(0.95);
+}
+
+:host(.btn--subtle.btn--danger) {
+  --btn-bg: var(--theme-error-subtle);
+  --btn-color: var(--theme-error);
+  --btn-border: 1px solid transparent;
+  --btn-filter-hover: brightness(0.95);
+}
+
+:host(.btn--subtle.btn--info) {
+  --btn-bg: var(--theme-info-subtle);
+  --btn-color: var(--theme-info);
+  --btn-border: 1px solid transparent;
+  --btn-filter-hover: brightness(0.95);
+}
+
+/* ========================
+   Link variant
+   ======================== */
+:host(.btn--link) {
+  --btn-bg: transparent;
+  --btn-border: 1px solid transparent;
+  --btn-text-decoration: underline;
+  --btn-text-underline-offset: 2px;
+}
+
+:host(.btn--link.btn--theme) {
+  --btn-color: var(--theme-primary);
+  --btn-color-hover: var(--theme-primary-hover);
+}
+
+:host(.btn--link.btn--danger) {
+  --btn-color: var(--theme-error);
+}
+
+:host(.btn--link.btn--success) {
+  --btn-color: var(--theme-success);
+}
+
+:host(.btn--link.btn--warning) {
+  --btn-color: var(--theme-warning);
+}
+
+:host(.btn--link.btn--info) {
+  --btn-color: var(--theme-info);
+}
+
+/* Busy */
+:host(.btn--busy) {
+  pointer-events: none;
+}

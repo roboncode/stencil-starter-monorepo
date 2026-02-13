@@ -1,0 +1,64 @@
+{
+  "name": "@components/core",
+  "version": "0.0.1",
+  "description": "Core Web Components Library",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/core/core.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/core/core.esm.js",
+      "require": "./dist/cjs/core.cjs.js"
+    },
+    "./components": {
+      "import": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts"
+    },
+    "./components/*": {
+      "import": "./dist/components/*",
+      "types": "./dist/components/*"
+    },
+    "./dist/components/*.js": {
+      "import": "./dist/components/*.js",
+      "types": "./dist/components/*.d.ts"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs"
+    },
+    "./styles/themes.css": "./dist/core/styles/themes.css",
+    "./styles/tokens.css": "./dist/core/styles/tokens.css",
+    "./styles/*": "./dist/core/styles/*"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/angular-output-target": "^1.0.0",
+    "@stencil/core": "^4.27.1",
+    "@stencil/react-output-target": "^1.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.5",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "puppeteer": "^24.3.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@floating-ui/dom": "^1.7.4",
+    "@fortawesome/fontawesome-free": "^7.1.0"
+  }
+}

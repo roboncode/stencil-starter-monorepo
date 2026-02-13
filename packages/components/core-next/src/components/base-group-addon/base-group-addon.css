@@ -1,0 +1,62 @@
+:host {
+  display: flex;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.addon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  padding: 0 var(--spacing-3);
+  font-size: var(--font-size-sm);
+  color: var(--theme-addon-text, var(--color-muted-foreground));
+  white-space: nowrap;
+  border: none;
+  background: none;
+  font: inherit;
+  margin: 0;
+  line-height: 1;
+}
+
+.addon--default {
+  background: var(--theme-addon-bg, var(--color-accent));
+}
+
+.addon--muted {
+  background: var(--theme-bg-tertiary, var(--color-accent));
+  color: var(--theme-text-tertiary, var(--color-muted));
+}
+
+.addon--transparent {
+  background: transparent;
+}
+
+.addon--start {
+  border-right: 1px solid var(--theme-border-default, var(--color-border));
+}
+
+.addon--end {
+  border-left: 1px solid var(--theme-border-default, var(--color-border));
+}
+
+.addon--transparent.addon--start,
+.addon--transparent.addon--end {
+  border-color: transparent;
+}
+
+.addon--clickable {
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.addon--clickable:hover:not(.addon--disabled) {
+  background: var(--theme-bg-tertiary, var(--color-accent));
+  color: var(--theme-text-primary, var(--color-foreground));
+}
+
+.addon--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

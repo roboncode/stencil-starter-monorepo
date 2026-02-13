@@ -1,0 +1,21 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host(.icon--sm) {
+  font-size: var(--font-size-xs);
+}
+
+:host(.icon--md) {
+  font-size: var(--font-size-base);
+}
+
+:host(.icon--lg) {
+  font-size: var(--font-size-lg);
+}
+
+:host(.icon--xl) {
+  font-size: var(--font-size-xl);
+}
