@@ -25,6 +25,11 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
+      copy: [
+        { src: 'styles/themes.css', dest: 'build/styles/themes.css' },
+        { src: 'styles/tokens.css', dest: 'build/styles/tokens.css' },
+        { src: 'styles/selection-tokens.css', dest: 'build/styles/selection-tokens.css' },
+      ],
     },
     angularOutputTarget({
       componentCorePackage: '@components/core',
