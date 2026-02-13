@@ -3,4 +3,5 @@
   align-items: center;
   justify-content: center;
   line-height: 1;
+  font-size: var(--icon-size, inherit);
 }

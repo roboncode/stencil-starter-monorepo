@@ -3,6 +3,10 @@
   --btn-radius: var(--button-radius, var(--radius-md));
   --btn-font-weight: var(--font-weight-medium);
   --btn-white-space: nowrap;
+
+  /* Label styling within buttons */
+  --label-font-weight: var(--font-weight-medium);
+  --label-font-size: inherit;
 }
 
 /* ========================

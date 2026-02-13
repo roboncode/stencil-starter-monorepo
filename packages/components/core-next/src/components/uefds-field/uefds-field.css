@@ -1,5 +1,18 @@
 :host {
   display: block;
+
+  /* Field label styling */
+  --field-label-margin: var(--spacing-1);
+  --field-label-color: var(--theme-text-primary, var(--color-foreground));
+  --field-label-required-color: var(--theme-error, #ef4444);
+  --field-label-required-weight: var(--font-weight-bold);
+  --label-font-weight: var(--font-weight-medium);
+  --label-font-size: var(--font-size-sm);
+  --label-line-height: var(--line-height-normal);
+
+  /* Field message styling */
+  --field-message-font-size: var(--font-size-xs);
+  --field-message-margin: var(--spacing-1);
 }
 
 .field {

@@ -9,54 +9,50 @@
   align-items: center;
   justify-content: center;
   align-self: stretch;
-  padding: 0 var(--spacing-3);
-  font-size: var(--font-size-sm);
-  color: var(--theme-addon-text, var(--color-muted-foreground));
+  padding: var(--addon-padding, 0 var(--spacing-3));
+  font-size: var(--addon-font-size, var(--font-size-sm));
+  color: var(--addon-color, inherit);
+  background: var(--addon-bg, none);
   white-space: nowrap;
   border: none;
-  background: none;
   font: inherit;
   margin: 0;
   line-height: 1;
+  cursor: var(--addon-cursor, default);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
-.addon--default {
-  background: var(--theme-addon-bg, var(--color-accent));
-}
-
-.addon--muted {
-  background: var(--theme-bg-tertiary, var(--color-accent));
-  color: var(--theme-text-tertiary, var(--color-muted));
-}
-
-.addon--transparent {
-  background: transparent;
-}
-
+/* Border between addon and input — structural, direction-dependent */
 .addon--start {
-  border-right: 1px solid var(--theme-border-default, var(--color-border));
+  border-right: var(--addon-border-start, none);
 }
 
 .addon--end {
-  border-left: 1px solid var(--theme-border-default, var(--color-border));
+  border-left: var(--addon-border-end, none);
 }
 
-.addon--transparent.addon--start,
-.addon--transparent.addon--end {
-  border-color: transparent;
+/* Variant overrides via CSS var bridge — classes are on the inner div */
+.addon--muted {
+  --addon-bg: var(--theme-bg-tertiary, var(--color-accent));
+  --addon-color: var(--theme-text-tertiary, var(--color-muted));
+}
+
+.addon--transparent {
+  --addon-bg: transparent;
+  --addon-border-start: 1px solid transparent;
+  --addon-border-end: 1px solid transparent;
 }
 
 .addon--clickable {
   cursor: pointer;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 
 .addon--clickable:hover:not(.addon--disabled) {
-  background: var(--theme-bg-tertiary, var(--color-accent));
-  color: var(--theme-text-primary, var(--color-foreground));
+  background: var(--addon-hover-bg, var(--theme-bg-tertiary, var(--color-accent)));
+  color: var(--addon-hover-color, var(--theme-text-primary, var(--color-foreground)));
 }
 
 .addon--disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: var(--addon-disabled-opacity, 0.5);
 }

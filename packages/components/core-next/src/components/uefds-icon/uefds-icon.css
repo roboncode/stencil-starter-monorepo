@@ -5,17 +5,17 @@
 }
 
 :host(.icon--sm) {
-  font-size: var(--font-size-xs);
+  --icon-size: var(--font-size-xs);
 }
 
 :host(.icon--md) {
-  font-size: var(--font-size-base);
+  --icon-size: var(--font-size-base);
 }
 
 :host(.icon--lg) {
-  font-size: var(--font-size-lg);
+  --icon-size: var(--font-size-lg);
 }
 
 :host(.icon--xl) {
-  font-size: var(--font-size-xl);
+  --icon-size: var(--font-size-xl);
 }

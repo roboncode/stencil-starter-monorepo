@@ -30,6 +30,7 @@ export const config: Config = {
         { src: 'styles/themes.css', dest: 'build/styles/themes.css' },
         { src: 'styles/tokens.css', dest: 'build/styles/tokens.css' },
         { src: 'styles/selection-tokens.css', dest: 'build/styles/selection-tokens.css' },
+        { src: 'styles.css', dest: 'styles.css' },
       ],
     },
     // angularOutputTarget({

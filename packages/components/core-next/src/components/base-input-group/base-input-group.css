@@ -1,51 +1,51 @@
 :host {
   display: block;
-  --input-padding: 0 var(--spacing-3);
 }
 
 .input-group {
   display: flex;
   align-items: stretch;
-  border: 1px solid var(--theme-input-border, var(--color-border));
-  border-radius: var(--theme-radius-md, var(--radius-md));
-  background: var(--theme-input-bg, var(--input-background));
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  border: var(--group-border, none);
+  border-radius: var(--group-radius, 0);
+  background: var(--group-bg, none);
+  height: var(--group-height, auto);
+  font-size: var(--group-font-size, inherit);
   overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .input-group:focus-within {
-  border-color: var(--theme-input-border-focus, var(--color-ring));
-  box-shadow: var(--theme-shadow-focus);
+  border-color: var(--group-border-focus-color, inherit);
+  box-shadow: var(--group-shadow-focus, none);
 }
 
-/* Sizes */
+/* Sizes — classes are on the inner div, set vars on same element */
 .input-group--sm {
-  height: var(--input-height-sm);
-  font-size: var(--font-size-xs);
+  --group-height: var(--input-height-sm);
+  --group-font-size: var(--font-size-xs);
 }
 
 .input-group--base {
-  height: var(--input-height-base);
-  font-size: var(--font-size-sm);
+  --group-height: var(--input-height-base);
+  --group-font-size: var(--font-size-sm);
 }
 
 .input-group--lg {
-  height: var(--input-height-lg);
-  font-size: var(--font-size-base);
+  --group-height: var(--input-height-lg);
+  --group-font-size: var(--font-size-base);
 }
 
 /* States */
 .input-group--disabled {
+  --group-bg: var(--theme-input-disabled-bg, var(--color-accent));
   opacity: 0.5;
   cursor: not-allowed;
-  background: var(--theme-input-disabled-bg, var(--color-accent));
 }
 
 .input-group--error {
-  border-color: var(--theme-error, #ef4444);
+  --group-border: 1px solid var(--theme-error, #ef4444);
 }
 
 .input-group--error:focus-within {
-  border-color: var(--theme-error, #ef4444);
   box-shadow: var(--theme-shadow-error-focus);
 }

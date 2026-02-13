@@ -1,6 +1,6 @@
 :host {
   display: inline;
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-normal);
+  font-weight: var(--label-font-weight, inherit);
+  font-size: var(--label-font-size, inherit);
+  line-height: var(--label-line-height, inherit);
 }
