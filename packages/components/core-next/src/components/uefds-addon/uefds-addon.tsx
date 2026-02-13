@@ -1,11 +1,11 @@
 import { Component, Prop, h, Host } from '@stencil/core';
 
 @Component({
-  tag: 'base-group-addon',
-  styleUrl: 'base-group-addon.css',
+  tag: 'uefds-addon',
+  styleUrl: 'uefds-addon.css',
   scoped: true,
 })
-export class BaseGroupAddon {
+export class UefdsAddon {
   @Prop({ reflect: true }) align: 'start' | 'end' = 'start';
   @Prop({ reflect: true }) variant: 'default' | 'muted' | 'transparent' = 'default';
   @Prop({ reflect: true }) clickable: boolean = false;

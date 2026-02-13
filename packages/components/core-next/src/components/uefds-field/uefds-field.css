@@ -1,45 +1,53 @@
-:host {
-  display: block;
+:host { display: block; }
 
-  /* Field label styling */
-  --field-label-margin: var(--spacing-1);
-  --field-label-color: var(--theme-text-primary, var(--color-foreground));
-  --field-label-required-color: var(--theme-error, #ef4444);
-  --field-label-required-weight: var(--font-weight-bold);
-  --label-font-weight: var(--font-weight-medium);
-  --label-font-size: var(--font-size-sm);
-  --label-line-height: var(--line-height-normal);
+.field { display: flex; flex-direction: column; }
 
-  /* Field message styling */
-  --field-message-font-size: var(--font-size-xs);
-  --field-message-margin: var(--spacing-1);
+/* Label */
+.field-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--theme-text-primary);
+  margin-bottom: var(--spacing-1);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
 }
 
-.field {
+.field-label__required {
+  color: var(--theme-error);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+/* Messages */
+.field-message {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  margin-top: var(--spacing-1);
 }
 
+.field-message--danger { color: var(--theme-error); }
+.field-message--warning { color: var(--theme-warning); }
+.field-message--info { color: var(--theme-info); }
+
+/* Instructions & Support */
 .field__instructions {
   display: block;
   font-size: var(--font-size-xs);
-  color: var(--theme-text-tertiary, var(--color-muted));
+  color: var(--theme-text-tertiary);
   margin-bottom: var(--spacing-2);
 }
 
-.field__control {
-  display: flex;
-  flex-direction: column;
-}
-
-.field__messages {
-  display: flex;
-  flex-direction: column;
-}
+.field__control { display: flex; flex-direction: column; }
+.field__messages { display: flex; flex-direction: column; }
 
 .field__support {
   display: block;
   font-size: var(--font-size-xs);
-  color: var(--theme-text-tertiary, var(--color-muted));
+  color: var(--theme-text-tertiary);
   margin-top: var(--spacing-1);
 }

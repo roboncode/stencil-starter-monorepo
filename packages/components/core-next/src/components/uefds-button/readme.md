@@ -21,20 +21,23 @@
 | `variant`   | `variant`    |             | `"link" \| "outline" \| "solid" \| "subtle"`              | `'solid'`      |
 
 
+## Events
+
+| Event         | Description | Type                      |
+| ------------- | ----------- | ------------------------- |
+| `buttonClick` |             | `CustomEvent<MouseEvent>` |
+
+
 ## Dependencies
 
 ### Depends on
 
-- [base-button](../base-button)
-- [base-icon](../base-icon)
-- [base-label](../base-label)
+- [uefds-icon](../uefds-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  uefds-button --> base-button
-  uefds-button --> base-icon
-  uefds-button --> base-label
+  uefds-button --> uefds-icon
   style uefds-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

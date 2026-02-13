@@ -1,12 +1,56 @@
 :host {
   display: inline-flex;
-  --btn-radius: var(--button-radius, var(--radius-md));
-  --btn-font-weight: var(--font-weight-medium);
-  --btn-white-space: nowrap;
+}
 
-  /* Label styling within buttons */
-  --label-font-weight: var(--font-weight-medium);
-  --label-font-size: inherit;
+/* ========================
+   Button base
+   ======================== */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, var(--spacing-2));
+  border: var(--btn-border, none);
+  background: var(--btn-bg, none);
+  color: var(--btn-color, inherit);
+  padding: var(--btn-padding, 0);
+  height: var(--btn-height, auto);
+  border-radius: var(--btn-radius, var(--button-radius, var(--radius-md)));
+  font-family: inherit;
+  font-size: var(--btn-font-size, inherit);
+  font-weight: var(--btn-font-weight, var(--font-weight-medium));
+  line-height: var(--line-height-normal);
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+  white-space: var(--btn-white-space, nowrap);
+  text-decoration: var(--btn-text-decoration, none);
+  text-underline-offset: var(--btn-text-underline-offset, auto);
+  transition: background-color var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--btn-bg-hover, var(--btn-bg, none));
+  color: var(--btn-color-hover, var(--btn-color, inherit));
+  border-color: var(--btn-border-color-hover);
+  filter: var(--btn-filter-hover, none);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--btn-focus-shadow, var(--theme-shadow-focus));
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Label */
+.btn__label {
+  display: inline;
+  font-weight: var(--font-weight-medium);
 }
 
 /* ========================

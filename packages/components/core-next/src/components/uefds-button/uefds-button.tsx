@@ -1,4 +1,4 @@
-import { Component, Prop, h, Host } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'uefds-button',
@@ -17,6 +17,14 @@ export class UefdsButton {
   @Prop({ reflect: true }) direction: 'vertical' | 'horizontal' = 'horizontal';
   @Prop({ reflect: true }) disabled: boolean = false;
 
+  @Event() buttonClick: EventEmitter<MouseEvent>;
+
+  private handleClick = (e: MouseEvent) => {
+    if (!this.disabled && !this.busy) {
+      this.buttonClick.emit(e);
+    }
+  };
+
   render() {
     const buttonType = this.type === 'clear' ? 'button' : this.type;
     const isDisabled = this.disabled || this.busy;
@@ -31,19 +39,24 @@ export class UefdsButton {
           'btn--busy': this.busy,
         }}
       >
-        <base-button type={buttonType} disabled={isDisabled}>
+        <button
+          type={buttonType}
+          disabled={isDisabled}
+          onClick={this.handleClick}
+          class="button"
+        >
           {this.busy && (
-            <base-icon name="fa-solid fa-spinner fa-spin"></base-icon>
+            <uefds-icon name="fa-solid fa-spinner fa-spin"></uefds-icon>
           )}
           {!this.busy && this.iconStart && (
-            <base-icon name={this.iconStart}></base-icon>
+            <uefds-icon name={this.iconStart}></uefds-icon>
           )}
-          {this.text && <base-label>{this.text}</base-label>}
+          {this.text && <span class="btn__label">{this.text}</span>}
           <slot></slot>
           {!this.busy && this.iconEnd && (
-            <base-icon name={this.iconEnd}></base-icon>
+            <uefds-icon name={this.iconEnd}></uefds-icon>
           )}
-        </base-button>
+        </button>
       </Host>
     );
   }

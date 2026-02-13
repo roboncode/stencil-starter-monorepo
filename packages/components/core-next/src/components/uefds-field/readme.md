@@ -20,19 +20,12 @@
 
 ### Depends on
 
-- [base-field-label](../base-field-label)
-- [base-text](../base-text)
-- [base-field-message](../base-field-message)
+- [uefds-icon](../uefds-icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  uefds-field --> base-field-label
-  uefds-field --> base-text
-  uefds-field --> base-field-message
-  base-field-label --> base-label
-  base-field-message --> base-icon
-  base-field-message --> base-text
+  uefds-field --> uefds-icon
   style uefds-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

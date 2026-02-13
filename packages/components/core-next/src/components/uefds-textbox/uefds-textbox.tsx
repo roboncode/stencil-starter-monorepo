@@ -20,13 +20,15 @@ export class UefdsTextbox {
   @Event() textboxFocus: EventEmitter<void>;
   @Event() textboxBlur: EventEmitter<void>;
 
-  private handleInput = (e: CustomEvent<string>) => {
-    this.value = e.detail;
+  private handleInput = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    this.value = target.value;
     this.textboxInput.emit(this.value);
   };
 
-  private handleChange = (e: CustomEvent<string>) => {
-    this.value = e.detail;
+  private handleChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    this.value = target.value;
     this.textboxChange.emit(this.value);
   };
 
@@ -41,20 +43,21 @@ export class UefdsTextbox {
   render() {
     return (
       <Host>
-        <base-input
+        <input
+          class="input"
+          type={this.type}
           value={this.value}
           placeholder={this.placeholder}
-          type={this.type}
           maxlength={this.maxlength}
           disabled={this.disabled}
-          readonly={this.readonly}
+          readOnly={this.readonly}
           name={this.name}
           required={this.required}
-          onInputInput={this.handleInput}
-          onInputChange={this.handleChange}
-          onInputFocus={this.handleFocus}
-          onInputBlur={this.handleBlur}
-        ></base-input>
+          onInput={this.handleInput}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
+        />
       </Host>
     );
   }

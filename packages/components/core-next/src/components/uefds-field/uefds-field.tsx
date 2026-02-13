@@ -5,6 +5,12 @@ export interface FieldMessage {
   variant: 'danger' | 'warning' | 'info';
 }
 
+const DEFAULT_ICONS: Record<string, string> = {
+  danger: 'fa-solid fa-circle-exclamation',
+  warning: 'fa-solid fa-triangle-exclamation',
+  info: 'fa-solid fa-circle-info',
+};
+
 @Component({
   tag: 'uefds-field',
   styleUrl: 'uefds-field.css',
@@ -22,13 +28,14 @@ export class UefdsField {
       <Host>
         <div class="field">
           {this.label && (
-            <base-field-label required={this.required}>
-              {this.label}
-            </base-field-label>
+            <label class="field-label">
+              <span class="field-label__text">{this.label}</span>
+              {this.required && <span class="field-label__required">*</span>}
+            </label>
           )}
 
           {this.instructions && (
-            <base-text class="field__instructions">{this.instructions}</base-text>
+            <span class="field__instructions">{this.instructions}</span>
           )}
 
           <div class="field__control">
@@ -38,15 +45,19 @@ export class UefdsField {
           {this.messages && this.messages.length > 0 && (
             <div class="field__messages">
               {this.messages.map(msg => (
-                <base-field-message variant={msg.variant}>
-                  {msg.text}
-                </base-field-message>
+                <div
+                  class={`field-message field-message--${msg.variant}`}
+                  role={msg.variant === 'danger' ? 'alert' : 'status'}
+                >
+                  <uefds-icon name={DEFAULT_ICONS[msg.variant]} size="sm"></uefds-icon>
+                  <span>{msg.text}</span>
+                </div>
               ))}
             </div>
           )}
 
           {this.support && (
-            <base-text class="field__support">{this.support}</base-text>
+            <span class="field__support">{this.support}</span>
           )}
         </div>
       </Host>

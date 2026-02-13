@@ -12,6 +12,7 @@ export const config: Config = {
       copy: [
         { src: 'styles/themes.css', dest: 'styles/themes.css' },
         { src: 'styles/tokens.css', dest: 'styles/tokens.css' },
+        { src: 'styles/brand.css', dest: 'styles/brand.css' },
         { src: 'styles/selection-tokens.css', dest: 'styles/selection-tokens.css' },
       ],
     },
@@ -29,6 +30,7 @@ export const config: Config = {
       copy: [
         { src: 'styles/themes.css', dest: 'build/styles/themes.css' },
         { src: 'styles/tokens.css', dest: 'build/styles/tokens.css' },
+        { src: 'styles/brand.css', dest: 'build/styles/brand.css' },
         { src: 'styles/selection-tokens.css', dest: 'build/styles/selection-tokens.css' },
         { src: 'styles.css', dest: 'styles.css' },
       ],

@@ -15,14 +15,16 @@
 
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [base-icon](../base-icon)
+ - [uefds-button](../uefds-button)
+ - [uefds-field](../uefds-field)
 
 ### Graph
 ```mermaid
 graph TD;
-  uefds-icon --> base-icon
+  uefds-button --> uefds-icon
+  uefds-field --> uefds-icon
   style uefds-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

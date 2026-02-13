@@ -29,19 +29,6 @@
 | `textboxInput`  |             | `CustomEvent<string>` |
 
 
-## Dependencies
-
-### Depends on
-
-- [base-input](../base-input)
-
-### Graph
-```mermaid
-graph TD;
-  uefds-textbox --> base-input
-  style uefds-textbox fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

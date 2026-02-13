@@ -1,6 +1,0 @@
-:host {
-  display: inline;
-  font-weight: var(--label-font-weight, inherit);
-  font-size: var(--label-font-size, inherit);
-  line-height: var(--label-line-height, inherit);
-}

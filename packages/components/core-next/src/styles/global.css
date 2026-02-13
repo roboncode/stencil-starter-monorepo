@@ -1,5 +1,6 @@
 /* Global Styles & Utilities */
 @import './tokens.css';
+@import './brand.css';
 
 /* Reset & Base */
 *,
@@ -20,21 +21,19 @@
 .font-bold { font-weight: var(--font-weight-bold); }
 
 /* Color utilities */
-.text-muted { color: var(--color-muted); }
-.text-foreground { color: var(--color-foreground); }
-.text-primary { color: var(--color-primary-500); }
+.text-muted { color: var(--theme-text-muted); }
+.text-foreground { color: var(--theme-text-primary); }
+.text-primary { color: var(--theme-primary); }
 
 /* Focus ring utility */
 .focus-ring:focus {
   outline: none;
-  box-shadow: 0 0 0 var(--input-focus-ring-offset) var(--color-background),
-              0 0 0 calc(var(--input-focus-ring-offset) + var(--input-focus-ring-width)) var(--input-focus-ring-color);
+  box-shadow: var(--theme-shadow-focus);
 }
 
 .focus-ring:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 var(--input-focus-ring-offset) var(--color-background),
-              0 0 0 calc(var(--input-focus-ring-offset) + var(--input-focus-ring-width)) var(--input-focus-ring-color);
+  box-shadow: var(--theme-shadow-focus);
 }
 
 /* Screen reader only */

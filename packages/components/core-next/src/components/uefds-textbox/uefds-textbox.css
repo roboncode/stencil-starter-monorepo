@@ -3,3 +3,23 @@
   flex: 1;
   min-width: 0;
 }
+
+.input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: var(--input-padding, 0);
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--theme-input-placeholder);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

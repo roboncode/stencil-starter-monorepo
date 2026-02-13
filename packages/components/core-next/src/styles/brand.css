@@ -1,0 +1,48 @@
+/* brand.css — Default brand (swap this file per application) */
+:root {
+  /* Primary palette */
+  --brand-primary-50: #eff6ff;
+  --brand-primary-100: #dbeafe;
+  --brand-primary-200: #bfdbfe;
+  --brand-primary-300: #93c5fd;
+  --brand-primary-400: #60a5fa;
+  --brand-primary-500: #3b82f6;
+  --brand-primary-600: #2563eb;
+  --brand-primary-700: #1d4ed8;
+  --brand-primary-800: #1e40af;
+  --brand-primary-900: #1e3a8a;
+
+  /* Neutral palette */
+  --brand-neutral-50: #fafafa;
+  --brand-neutral-100: #f5f5f5;
+  --brand-neutral-200: #e5e5e5;
+  --brand-neutral-300: #d4d4d4;
+  --brand-neutral-400: #a3a3a3;
+  --brand-neutral-500: #737373;
+  --brand-neutral-600: #525252;
+  --brand-neutral-700: #404040;
+  --brand-neutral-800: #262626;
+  --brand-neutral-900: #171717;
+  --brand-neutral-950: #0a0a0a;
+
+  /* Status colors */
+  --brand-success: #22c55e;
+  --brand-success-light: #4ade80;
+  --brand-success-subtle-light: #f0fdf4;
+  --brand-success-subtle-dark: #14532d;
+
+  --brand-warning: #f59e0b;
+  --brand-warning-light: #fbbf24;
+  --brand-warning-subtle-light: #fffbeb;
+  --brand-warning-subtle-dark: #78350f;
+
+  --brand-error: #ef4444;
+  --brand-error-light: #f87171;
+  --brand-error-subtle-light: #fef2f2;
+  --brand-error-subtle-dark: #7f1d1d;
+
+  --brand-info: #3b82f6;
+  --brand-info-light: #60a5fa;
+  --brand-info-subtle-light: #eff6ff;
+  --brand-info-subtle-dark: #1e3a5f;
+}

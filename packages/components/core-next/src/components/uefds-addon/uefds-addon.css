@@ -1,0 +1,47 @@
+:host {
+  display: flex;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.addon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  padding: 0 var(--spacing-3);
+  font-size: inherit;
+  color: var(--theme-addon-text);
+  background: var(--theme-addon-bg);
+  white-space: nowrap;
+  border: none;
+  font: inherit;
+  margin: 0;
+  line-height: 1;
+  cursor: default;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.addon--start { border-right: 1px solid var(--theme-border-default); }
+.addon--end { border-left: 1px solid var(--theme-border-default); }
+
+.addon--muted {
+  background: var(--theme-bg-tertiary);
+  color: var(--theme-text-tertiary);
+}
+
+.addon--transparent {
+  background: transparent;
+  border-color: transparent;
+}
+
+.addon--clickable { cursor: pointer; }
+.addon--clickable:hover:not(.addon--disabled) {
+  background: var(--theme-bg-tertiary);
+  color: var(--theme-text-primary);
+}
+
+.addon--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

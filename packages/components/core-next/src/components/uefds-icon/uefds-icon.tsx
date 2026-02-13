@@ -12,7 +12,7 @@ export class UefdsIcon {
   render() {
     return (
       <Host class={`icon--${this.size}`}>
-        <base-icon name={this.name}></base-icon>
+        {this.name ? <i class={this.name}></i> : <slot></slot>}
       </Host>
     );
   }

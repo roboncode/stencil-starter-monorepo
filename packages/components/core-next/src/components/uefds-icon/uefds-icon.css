@@ -2,20 +2,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
 
-:host(.icon--sm) {
-  --icon-size: var(--font-size-xs);
-}
-
-:host(.icon--md) {
-  --icon-size: var(--font-size-base);
-}
-
-:host(.icon--lg) {
-  --icon-size: var(--font-size-lg);
-}
-
-:host(.icon--xl) {
-  --icon-size: var(--font-size-xl);
-}
+:host(.icon--sm) { font-size: var(--font-size-xs); }
+:host(.icon--md) { font-size: var(--font-size-base); }
+:host(.icon--lg) { font-size: var(--font-size-lg); }
+:host(.icon--xl) { font-size: var(--font-size-xl); }

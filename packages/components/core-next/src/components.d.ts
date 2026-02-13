@@ -8,30 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { FieldMessage } from "./components/uefds-field/uefds-field";
 export { FieldMessage } from "./components/uefds-field/uefds-field";
 export namespace Components {
-    interface BaseButton {
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * @default 'button'
-         */
-        "type": 'button' | 'submit' | 'reset';
-    }
-    interface BaseFieldLabel {
-        /**
-          * @default false
-         */
-        "required": boolean;
-    }
-    interface BaseFieldMessage {
-        "icon": string;
-        /**
-          * @default 'danger'
-         */
-        "variant": 'danger' | 'warning' | 'info';
-    }
-    interface BaseGroupAddon {
+    interface UefdsAddon {
         /**
           * @default 'start'
          */
@@ -48,52 +25,6 @@ export namespace Components {
           * @default 'default'
          */
         "variant": 'default' | 'muted' | 'transparent';
-    }
-    interface BaseIcon {
-        "name": string;
-    }
-    interface BaseInput {
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        "maxlength": number;
-        "name": string;
-        "placeholder": string;
-        /**
-          * @default false
-         */
-        "readonly": boolean;
-        /**
-          * @default false
-         */
-        "required": boolean;
-        /**
-          * @default 'text'
-         */
-        "type": string;
-        /**
-          * @default ''
-         */
-        "value": string;
-    }
-    interface BaseInputGroup {
-        /**
-          * @default false
-         */
-        "disabled": boolean;
-        /**
-          * @default false
-         */
-        "error": boolean;
-        /**
-          * @default 'base'
-         */
-        "size": 'sm' | 'base' | 'lg';
-    }
-    interface BaseLabel {
-    }
-    interface BaseText {
     }
     interface UefdsButton {
         /**
@@ -192,99 +123,33 @@ export namespace Components {
         "value": string;
     }
 }
-export interface BaseButtonCustomEvent<T> extends CustomEvent<T> {
+export interface UefdsButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLBaseButtonElement;
-}
-export interface BaseInputCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLBaseInputElement;
+    target: HTMLUefdsButtonElement;
 }
 export interface UefdsTextboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUefdsTextboxElement;
 }
 declare global {
-    interface HTMLBaseButtonElementEventMap {
+    interface HTMLUefdsAddonElement extends Components.UefdsAddon, HTMLStencilElement {
+    }
+    var HTMLUefdsAddonElement: {
+        prototype: HTMLUefdsAddonElement;
+        new (): HTMLUefdsAddonElement;
+    };
+    interface HTMLUefdsButtonElementEventMap {
         "buttonClick": MouseEvent;
     }
-    interface HTMLBaseButtonElement extends Components.BaseButton, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLBaseButtonElementEventMap>(type: K, listener: (this: HTMLBaseButtonElement, ev: BaseButtonCustomEvent<HTMLBaseButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLBaseButtonElementEventMap>(type: K, listener: (this: HTMLBaseButtonElement, ev: BaseButtonCustomEvent<HTMLBaseButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLBaseButtonElement: {
-        prototype: HTMLBaseButtonElement;
-        new (): HTMLBaseButtonElement;
-    };
-    interface HTMLBaseFieldLabelElement extends Components.BaseFieldLabel, HTMLStencilElement {
-    }
-    var HTMLBaseFieldLabelElement: {
-        prototype: HTMLBaseFieldLabelElement;
-        new (): HTMLBaseFieldLabelElement;
-    };
-    interface HTMLBaseFieldMessageElement extends Components.BaseFieldMessage, HTMLStencilElement {
-    }
-    var HTMLBaseFieldMessageElement: {
-        prototype: HTMLBaseFieldMessageElement;
-        new (): HTMLBaseFieldMessageElement;
-    };
-    interface HTMLBaseGroupAddonElement extends Components.BaseGroupAddon, HTMLStencilElement {
-    }
-    var HTMLBaseGroupAddonElement: {
-        prototype: HTMLBaseGroupAddonElement;
-        new (): HTMLBaseGroupAddonElement;
-    };
-    interface HTMLBaseIconElement extends Components.BaseIcon, HTMLStencilElement {
-    }
-    var HTMLBaseIconElement: {
-        prototype: HTMLBaseIconElement;
-        new (): HTMLBaseIconElement;
-    };
-    interface HTMLBaseInputElementEventMap {
-        "inputInput": string;
-        "inputChange": string;
-        "inputFocus": void;
-        "inputBlur": void;
-    }
-    interface HTMLBaseInputElement extends Components.BaseInput, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLBaseInputElementEventMap>(type: K, listener: (this: HTMLBaseInputElement, ev: BaseInputCustomEvent<HTMLBaseInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLBaseInputElementEventMap>(type: K, listener: (this: HTMLBaseInputElement, ev: BaseInputCustomEvent<HTMLBaseInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
-    }
-    var HTMLBaseInputElement: {
-        prototype: HTMLBaseInputElement;
-        new (): HTMLBaseInputElement;
-    };
-    interface HTMLBaseInputGroupElement extends Components.BaseInputGroup, HTMLStencilElement {
-    }
-    var HTMLBaseInputGroupElement: {
-        prototype: HTMLBaseInputGroupElement;
-        new (): HTMLBaseInputGroupElement;
-    };
-    interface HTMLBaseLabelElement extends Components.BaseLabel, HTMLStencilElement {
-    }
-    var HTMLBaseLabelElement: {
-        prototype: HTMLBaseLabelElement;
-        new (): HTMLBaseLabelElement;
-    };
-    interface HTMLBaseTextElement extends Components.BaseText, HTMLStencilElement {
-    }
-    var HTMLBaseTextElement: {
-        prototype: HTMLBaseTextElement;
-        new (): HTMLBaseTextElement;
-    };
     interface HTMLUefdsButtonElement extends Components.UefdsButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLUefdsButtonElementEventMap>(type: K, listener: (this: HTMLUefdsButtonElement, ev: UefdsButtonCustomEvent<HTMLUefdsButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLUefdsButtonElementEventMap>(type: K, listener: (this: HTMLUefdsButtonElement, ev: UefdsButtonCustomEvent<HTMLUefdsButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLUefdsButtonElement: {
         prototype: HTMLUefdsButtonElement;
@@ -341,15 +206,7 @@ declare global {
         new (): HTMLUefdsTextboxElement;
     };
     interface HTMLElementTagNameMap {
-        "base-button": HTMLBaseButtonElement;
-        "base-field-label": HTMLBaseFieldLabelElement;
-        "base-field-message": HTMLBaseFieldMessageElement;
-        "base-group-addon": HTMLBaseGroupAddonElement;
-        "base-icon": HTMLBaseIconElement;
-        "base-input": HTMLBaseInputElement;
-        "base-input-group": HTMLBaseInputGroupElement;
-        "base-label": HTMLBaseLabelElement;
-        "base-text": HTMLBaseTextElement;
+        "uefds-addon": HTMLUefdsAddonElement;
         "uefds-button": HTMLUefdsButtonElement;
         "uefds-field": HTMLUefdsFieldElement;
         "uefds-fieldset": HTMLUefdsFieldsetElement;
@@ -360,31 +217,7 @@ declare global {
     }
 }
 declare namespace LocalJSX {
-    interface BaseButton {
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        "onButtonClick"?: (event: BaseButtonCustomEvent<MouseEvent>) => void;
-        /**
-          * @default 'button'
-         */
-        "type"?: 'button' | 'submit' | 'reset';
-    }
-    interface BaseFieldLabel {
-        /**
-          * @default false
-         */
-        "required"?: boolean;
-    }
-    interface BaseFieldMessage {
-        "icon"?: string;
-        /**
-          * @default 'danger'
-         */
-        "variant"?: 'danger' | 'warning' | 'info';
-    }
-    interface BaseGroupAddon {
+    interface UefdsAddon {
         /**
           * @default 'start'
          */
@@ -401,56 +234,6 @@ declare namespace LocalJSX {
           * @default 'default'
          */
         "variant"?: 'default' | 'muted' | 'transparent';
-    }
-    interface BaseIcon {
-        "name"?: string;
-    }
-    interface BaseInput {
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        "maxlength"?: number;
-        "name"?: string;
-        "onInputBlur"?: (event: BaseInputCustomEvent<void>) => void;
-        "onInputChange"?: (event: BaseInputCustomEvent<string>) => void;
-        "onInputFocus"?: (event: BaseInputCustomEvent<void>) => void;
-        "onInputInput"?: (event: BaseInputCustomEvent<string>) => void;
-        "placeholder"?: string;
-        /**
-          * @default false
-         */
-        "readonly"?: boolean;
-        /**
-          * @default false
-         */
-        "required"?: boolean;
-        /**
-          * @default 'text'
-         */
-        "type"?: string;
-        /**
-          * @default ''
-         */
-        "value"?: string;
-    }
-    interface BaseInputGroup {
-        /**
-          * @default false
-         */
-        "disabled"?: boolean;
-        /**
-          * @default false
-         */
-        "error"?: boolean;
-        /**
-          * @default 'base'
-         */
-        "size"?: 'sm' | 'base' | 'lg';
-    }
-    interface BaseLabel {
-    }
-    interface BaseText {
     }
     interface UefdsButton {
         /**
@@ -471,6 +254,7 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "iconEnd"?: string;
         "iconStart"?: string;
+        "onButtonClick"?: (event: UefdsButtonCustomEvent<MouseEvent>) => void;
         /**
           * @default 'md'
          */
@@ -553,15 +337,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface IntrinsicElements {
-        "base-button": BaseButton;
-        "base-field-label": BaseFieldLabel;
-        "base-field-message": BaseFieldMessage;
-        "base-group-addon": BaseGroupAddon;
-        "base-icon": BaseIcon;
-        "base-input": BaseInput;
-        "base-input-group": BaseInputGroup;
-        "base-label": BaseLabel;
-        "base-text": BaseText;
+        "uefds-addon": UefdsAddon;
         "uefds-button": UefdsButton;
         "uefds-field": UefdsField;
         "uefds-fieldset": UefdsFieldset;
@@ -575,15 +351,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "base-button": LocalJSX.BaseButton & JSXBase.HTMLAttributes<HTMLBaseButtonElement>;
-            "base-field-label": LocalJSX.BaseFieldLabel & JSXBase.HTMLAttributes<HTMLBaseFieldLabelElement>;
-            "base-field-message": LocalJSX.BaseFieldMessage & JSXBase.HTMLAttributes<HTMLBaseFieldMessageElement>;
-            "base-group-addon": LocalJSX.BaseGroupAddon & JSXBase.HTMLAttributes<HTMLBaseGroupAddonElement>;
-            "base-icon": LocalJSX.BaseIcon & JSXBase.HTMLAttributes<HTMLBaseIconElement>;
-            "base-input": LocalJSX.BaseInput & JSXBase.HTMLAttributes<HTMLBaseInputElement>;
-            "base-input-group": LocalJSX.BaseInputGroup & JSXBase.HTMLAttributes<HTMLBaseInputGroupElement>;
-            "base-label": LocalJSX.BaseLabel & JSXBase.HTMLAttributes<HTMLBaseLabelElement>;
-            "base-text": LocalJSX.BaseText & JSXBase.HTMLAttributes<HTMLBaseTextElement>;
+            "uefds-addon": LocalJSX.UefdsAddon & JSXBase.HTMLAttributes<HTMLUefdsAddonElement>;
             "uefds-button": LocalJSX.UefdsButton & JSXBase.HTMLAttributes<HTMLUefdsButtonElement>;
             "uefds-field": LocalJSX.UefdsField & JSXBase.HTMLAttributes<HTMLUefdsFieldElement>;
             "uefds-fieldset": LocalJSX.UefdsFieldset & JSXBase.HTMLAttributes<HTMLUefdsFieldsetElement>;

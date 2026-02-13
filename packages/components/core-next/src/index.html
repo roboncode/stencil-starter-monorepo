@@ -8,7 +8,7 @@
     <script type="module" src="/build/core-next.esm.js"></script>
     <script nomodule src="/build/core-next.js"></script>
 
-    <!-- Global styles (tokens + reset) -->
+    <!-- Global styles (tokens + brand + reset) -->
     <link rel="stylesheet" href="/build/core-next.css" />
 
     <!-- Font Awesome -->
@@ -37,90 +37,6 @@
       </div>
 
       <!-- ================================
-           PRIMITIVES SHOWCASE
-           ================================ -->
-      <div class="demo-section">
-        <h2>Primitives</h2>
-
-        <div class="demo-row">
-          <span class="label">base-text</span>
-          <base-text>This is a base-text element. It inherits font and color.</base-text>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-icon</span>
-          <div class="inline-row">
-            <base-icon name="fa-solid fa-user"></base-icon>
-            <base-icon name="fa-solid fa-star"></base-icon>
-            <base-icon name="fa-solid fa-heart"></base-icon>
-            <base-icon name="fa-solid fa-check-circle"></base-icon>
-            <base-icon><i class="fa-brands fa-github"></i></base-icon>
-          </div>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-label</span>
-          <div class="inline-row">
-            <base-label>Username</base-label>
-            <base-label>Email address</base-label>
-            <base-label>Password</base-label>
-          </div>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-button</span>
-          <div class="inline-row">
-            <base-button>Click me</base-button>
-            <base-button disabled>Disabled</base-button>
-          </div>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-input (standalone, no chrome)</span>
-          <base-input placeholder="Type something..."></base-input>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-field-label</span>
-          <div class="inline-row">
-            <base-field-label>Field label</base-field-label>
-            <base-field-label required>Required label</base-field-label>
-          </div>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-field-message</span>
-          <div style="display: flex; flex-direction: column;">
-            <base-field-message variant="danger">Danger message</base-field-message>
-            <base-field-message variant="warning">Warning message</base-field-message>
-            <base-field-message variant="info">Info message</base-field-message>
-          </div>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-input-group (no chrome without composite)</span>
-          <base-input-group>
-            <base-input placeholder="Bare input group..."></base-input>
-          </base-input-group>
-        </div>
-
-        <div class="demo-row">
-          <span class="label">base-group-addon</span>
-          <div class="inline-row">
-            <base-group-addon>
-              <base-icon name="fa-solid fa-tag"></base-icon>
-            </base-group-addon>
-            <base-group-addon variant="muted">
-              <base-text>Muted</base-text>
-            </base-group-addon>
-            <base-group-addon variant="transparent">
-              <base-text>Transparent</base-text>
-            </base-group-addon>
-          </div>
-        </div>
-      </div>
-
-      <!-- ================================
            INPUT GROUP WITH ADDONS
            ================================ -->
       <div class="demo-section">
@@ -129,22 +45,22 @@
         <div class="demo-row">
           <span class="label">Search with icon</span>
           <uefds-input-group>
-            <base-group-addon slot="addon-start">
+            <uefds-addon slot="addon-start">
               <uefds-icon name="fa-solid fa-magnifying-glass"></uefds-icon>
-            </base-group-addon>
+            </uefds-addon>
             <uefds-textbox placeholder="Search..."></uefds-textbox>
-            <base-group-addon slot="addon-end" variant="transparent">
-              <base-text>12 results</base-text>
-            </base-group-addon>
+            <uefds-addon slot="addon-end" variant="transparent">
+              <span>12 results</span>
+            </uefds-addon>
           </uefds-input-group>
         </div>
 
         <div class="demo-row">
           <span class="label">URL with muted prefix</span>
           <uefds-input-group>
-            <base-group-addon slot="addon-start" variant="muted">
-              <base-text>https://</base-text>
-            </base-group-addon>
+            <uefds-addon slot="addon-start" variant="muted">
+              <span>https://</span>
+            </uefds-addon>
             <uefds-textbox placeholder="example.com"></uefds-textbox>
           </uefds-input-group>
         </div>
@@ -152,13 +68,13 @@
         <div class="demo-row">
           <span class="label">Email with clickable addon</span>
           <uefds-input-group>
-            <base-group-addon slot="addon-start">
+            <uefds-addon slot="addon-start">
               <uefds-icon name="fa-solid fa-envelope"></uefds-icon>
-            </base-group-addon>
+            </uefds-addon>
             <uefds-textbox type="email" placeholder="you@example.com"></uefds-textbox>
-            <base-group-addon slot="addon-end" clickable>
+            <uefds-addon slot="addon-end" clickable>
               <uefds-icon name="fa-solid fa-paper-plane"></uefds-icon>
-            </base-group-addon>
+            </uefds-addon>
           </uefds-input-group>
         </div>
 
@@ -166,21 +82,21 @@
         <div class="demo-row">
           <span class="label">Small</span>
           <uefds-input-group size="sm">
-            <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></base-group-addon>
+            <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></uefds-addon>
             <uefds-textbox placeholder="Small input"></uefds-textbox>
           </uefds-input-group>
         </div>
         <div class="demo-row">
           <span class="label">Base (default)</span>
           <uefds-input-group size="base">
-            <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></base-group-addon>
+            <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></uefds-addon>
             <uefds-textbox placeholder="Base input"></uefds-textbox>
           </uefds-input-group>
         </div>
         <div class="demo-row">
           <span class="label">Large</span>
           <uefds-input-group size="lg">
-            <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></base-group-addon>
+            <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></uefds-addon>
             <uefds-textbox placeholder="Large input"></uefds-textbox>
           </uefds-input-group>
         </div>
@@ -189,14 +105,14 @@
         <div class="demo-row">
           <span class="label">Disabled</span>
           <uefds-input-group disabled>
-            <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-ban"></uefds-icon></base-group-addon>
+            <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-ban"></uefds-icon></uefds-addon>
             <uefds-textbox placeholder="Disabled" disabled></uefds-textbox>
           </uefds-input-group>
         </div>
         <div class="demo-row">
           <span class="label">Error</span>
           <uefds-input-group error>
-            <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-triangle-exclamation"></uefds-icon></base-group-addon>
+            <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-triangle-exclamation"></uefds-icon></uefds-addon>
             <uefds-textbox placeholder="Invalid input"></uefds-textbox>
           </uefds-input-group>
         </div>
@@ -294,9 +210,9 @@
         <div class="demo-row" id="field-demo">
           <uefds-field label="Email Address" required>
             <uefds-input-group>
-              <base-group-addon slot="addon-start">
+              <uefds-addon slot="addon-start">
                 <uefds-icon name="fa-solid fa-envelope"></uefds-icon>
-              </base-group-addon>
+              </uefds-addon>
               <uefds-textbox placeholder="you@example.com"></uefds-textbox>
             </uefds-input-group>
           </uefds-field>
@@ -305,13 +221,13 @@
         <div class="demo-row" id="field-error-demo">
           <uefds-field label="Password" required>
             <uefds-input-group error>
-              <base-group-addon slot="addon-start">
+              <uefds-addon slot="addon-start">
                 <uefds-icon name="fa-solid fa-lock"></uefds-icon>
-              </base-group-addon>
+              </uefds-addon>
               <uefds-textbox type="password" placeholder="Enter password"></uefds-textbox>
-              <base-group-addon slot="addon-end" clickable id="toggle-pw">
+              <uefds-addon slot="addon-end" clickable id="toggle-pw">
                 <uefds-icon name="fa-solid fa-eye"></uefds-icon>
-              </base-group-addon>
+              </uefds-addon>
             </uefds-input-group>
           </uefds-field>
         </div>
@@ -319,9 +235,9 @@
         <div class="demo-row">
           <uefds-field label="Website URL">
             <uefds-input-group>
-              <base-group-addon slot="addon-start" variant="muted">
-                <base-text>https://</base-text>
-              </base-group-addon>
+              <uefds-addon slot="addon-start" variant="muted">
+                <span>https://</span>
+              </uefds-addon>
               <uefds-textbox placeholder="example.com"></uefds-textbox>
             </uefds-input-group>
           </uefds-field>
@@ -383,14 +299,14 @@
 
             <uefds-field label="Full Name" required>
               <uefds-input-group>
-                <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></base-group-addon>
+                <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-user"></uefds-icon></uefds-addon>
                 <uefds-textbox placeholder="John Doe"></uefds-textbox>
               </uefds-input-group>
             </uefds-field>
 
             <uefds-field label="Email" required>
               <uefds-input-group>
-                <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-envelope"></uefds-icon></base-group-addon>
+                <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-envelope"></uefds-icon></uefds-addon>
                 <uefds-textbox type="email" placeholder="john@example.com"></uefds-textbox>
               </uefds-input-group>
             </uefds-field>
@@ -416,7 +332,7 @@
           <div class="inline-row">
             <uefds-button class="header-button" text="Custom Class" variant="outline"></uefds-button>
             <uefds-input-group class="custom-group">
-              <base-group-addon slot="addon-start"><uefds-icon name="fa-solid fa-search"></uefds-icon></base-group-addon>
+              <uefds-addon slot="addon-start"><uefds-icon name="fa-solid fa-search"></uefds-icon></uefds-addon>
               <uefds-textbox class="custom-input" placeholder="Custom class on input"></uefds-textbox>
             </uefds-input-group>
           </div>
